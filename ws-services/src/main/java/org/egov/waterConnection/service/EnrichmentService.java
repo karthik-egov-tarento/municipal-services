@@ -46,6 +46,7 @@ public class EnrichmentService {
 	 */
 	public void enrichWaterSearch(List<WaterConnection> waterConnectionList, RequestInfo requestInfo,
 			SearchCriteria waterConnectionSearchCriteria) {
+		
 		if(!waterConnectionList.isEmpty()) {
 			String propertyIdsString = waterConnectionList.stream()
 					.map(waterConnection -> waterConnection.getProperty().getPropertyId()).collect(Collectors.toList())
