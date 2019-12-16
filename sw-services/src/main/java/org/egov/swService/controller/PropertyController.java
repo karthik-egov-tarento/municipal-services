@@ -34,8 +34,9 @@ public class PropertyController {
 	@Autowired
 	private final ResponseInfoFactory responseInfoFactory;
 	
+	
 	@Autowired
-	PropertyService propertyService;
+	private PropertyService propertyService;
 
 	@RequestMapping(value = "/_create", method = RequestMethod.POST)
 	public ResponseEntity<PropertyResponse> create(@Valid @RequestBody PropertyRequest propertyRequest) {

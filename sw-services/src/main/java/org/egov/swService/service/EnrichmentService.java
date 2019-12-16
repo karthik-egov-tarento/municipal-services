@@ -4,12 +4,13 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.LinkedHashMap;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
+import java.util.function.Function;
 import org.egov.common.contract.request.RequestInfo;
 import org.egov.tracer.model.CustomException;
 import org.egov.swService.config.SWConfiguration;
@@ -53,24 +54,36 @@ public class EnrichmentService {
 	 */
 
 	public void enrichSewerageSearch(List<SewerageConnection> sewerageConnectionList, RequestInfo requestInfo,SearchCriteria sewerageConnectionSearchCriteria) {
-		sewerageConnectionList.forEach(sewerageConnection -> {
-			List<Property> propertyList;
-			if (sewerageConnection.getProperty().getPropertyId() == null
-					|| sewerageConnection.getProperty().getPropertyId().isEmpty()) {
-				throw new CustomException("INVALID SEARCH",
-						"PROPERTY ID NOT FOUND FOR " + sewerageConnection.getId() + " SEWERAGE CONNECTION ID");
-			}
-			if (sewerageConnection.getProperty().getPropertyId() != null) {
+//		sewerageConnectionList.forEach(sewerageConnection -> {
+//			List<Property> propertyList;
+////			if (sewerageConnection.getProperty().getPropertyId() == null
+////					|| sewerageConnection.getProperty().getPropertyId().isEmpty()) {
+////				throw new CustomException("INVALID SEARCH",
+////						"PROPERTY ID NOT FOUND FOR " + sewerageConnection.getId() + " SEWERAGE CONNECTION ID");
+////			}
+			
+			if(!sewerageConnectionList.isEmpty()) {
+				String propertyIdsString = sewerageConnectionList.stream()
+						.map(waterConnection -> waterConnection.getProperty().getPropertyId()).collect(Collectors.toList())
+						.stream().collect(Collectors.joining(","));
+				List<Property> propertyList = sewerageServicesUtil.searchPropertyOnId(sewerageConnectionSearchCriteria.getTenantId(),
+						propertyIdsString, requestInfo);
+				HashMap<String, Property> propertyMap = propertyList.stream().collect(Collectors.toMap(Property::getPropertyId,
+						Function.identity(), (oldValue, newValue) -> newValue, LinkedHashMap::new));
+				sewerageConnectionList.forEach(sewerageConnection -> {
+			
 				String propertyId = sewerageConnection.getProperty().getPropertyId();
-				propertyList = sewerageServicesUtil.searchPropertyOnId(sewerageConnectionSearchCriteria.getTenantId(), propertyId, requestInfo);
-				if (propertyList == null || propertyList.isEmpty()) {
+				if (propertyMap.containsKey(propertyId)) {
+					sewerageConnection.setProperty(propertyMap.get(propertyId));
+				} else {
+				
 					throw new CustomException("INVALID SEARCH",
-							"NO PROPERTY FOUND FOR " + sewerageConnection.getId() + " WATER CONNECTION ID");
+							"NO PROPERTY FOUND FOR " + sewerageConnection.getConnectionNo() + " WATER CONNECTION No");
 				}
-				sewerageConnection.setProperty(propertyList.get(0));
-			}
-		});
-	}
+				});
+			
+	      }
+		}
 	
 
 	

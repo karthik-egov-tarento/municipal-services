@@ -229,8 +229,9 @@ public class SewerageServicesUtil {
 	 * @param requestInfo
 	 * @return List of Property
 	 */
-	public List<Property> searchPropertyOnId(String tenantId, String propertyId, RequestInfo requestInfo){
-		StringBuilder propertySearhURL = getPropURLForCreate(tenantId, propertyId);
+	public List<Property> searchPropertyOnId(String tenantId, String propertyIds, RequestInfo requestInfo){
+		
+		StringBuilder propertySearhURL = getPropURLForCreate(tenantId, propertyIds);
 		Object result = serviceRequestRepository.fetchResult(propertySearhURL,RequestInfoWrapper.builder().requestInfo(requestInfo).build());
 		return getPropertyDetails(result);
 	}
