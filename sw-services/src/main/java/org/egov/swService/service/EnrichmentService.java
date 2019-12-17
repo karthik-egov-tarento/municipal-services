@@ -53,37 +53,32 @@ public class EnrichmentService {
 	 *            is RequestInfo from request
 	 */
 
-	public void enrichSewerageSearch(List<SewerageConnection> sewerageConnectionList, RequestInfo requestInfo,SearchCriteria sewerageConnectionSearchCriteria) {
-//		sewerageConnectionList.forEach(sewerageConnection -> {
-//			List<Property> propertyList;
-////			if (sewerageConnection.getProperty().getPropertyId() == null
-////					|| sewerageConnection.getProperty().getPropertyId().isEmpty()) {
-////				throw new CustomException("INVALID SEARCH",
-////						"PROPERTY ID NOT FOUND FOR " + sewerageConnection.getId() + " SEWERAGE CONNECTION ID");
-////			}
-			
-			if(!sewerageConnectionList.isEmpty()) {
-				String propertyIdsString = sewerageConnectionList.stream()
-						.map(waterConnection -> waterConnection.getProperty().getPropertyId()).collect(Collectors.toList())
-						.stream().collect(Collectors.joining(","));
-				List<Property> propertyList = sewerageServicesUtil.searchPropertyOnId(sewerageConnectionSearchCriteria.getTenantId(),
-						propertyIdsString, requestInfo);
-				HashMap<String, Property> propertyMap = propertyList.stream().collect(Collectors.toMap(Property::getPropertyId,
-						Function.identity(), (oldValue, newValue) -> newValue, LinkedHashMap::new));
-				sewerageConnectionList.forEach(sewerageConnection -> {
-			
+	public void enrichSewerageSearch(List<SewerageConnection> sewerageConnectionList, RequestInfo requestInfo,
+			SearchCriteria sewerageConnectionSearchCriteria) {
+
+		if (!sewerageConnectionList.isEmpty()) {
+			String propertyIdsString = sewerageConnectionList.stream()
+					.map(sewerageConnection -> sewerageConnection.getProperty().getPropertyId())
+					.collect(Collectors.toList()).stream().collect(Collectors.joining(","));
+			List<Property> propertyList = sewerageServicesUtil
+					.searchPropertyOnId(sewerageConnectionSearchCriteria.getTenantId(), propertyIdsString, requestInfo);
+			HashMap<String, Property> propertyMap = propertyList.stream()
+					.collect(Collectors.toMap(Property::getPropertyId, Function.identity(),
+							(oldValue, newValue) -> newValue, LinkedHashMap::new));
+			sewerageConnectionList.forEach(sewerageConnection -> {
+
 				String propertyId = sewerageConnection.getProperty().getPropertyId();
 				if (propertyMap.containsKey(propertyId)) {
 					sewerageConnection.setProperty(propertyMap.get(propertyId));
 				} else {
-				
-					throw new CustomException("INVALID SEARCH",
-							"NO PROPERTY FOUND FOR " + sewerageConnection.getConnectionNo() + " WATER CONNECTION No");
+
+					throw new CustomException("INVALID SEARCH", "NO PROPERTY FOUND FOR "
+							+ sewerageConnection.getConnectionNo() + " SEWERAGE CONNECTION No");
 				}
-				});
-			
-	      }
+			});
+
 		}
+	}
 	
 
 	
