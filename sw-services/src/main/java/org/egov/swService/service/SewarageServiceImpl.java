@@ -65,6 +65,7 @@ public class SewarageServiceImpl implements SewarageService {
 	public List<SewerageConnection> search(SearchCriteria criteria, RequestInfo requestInfo) {
 		List<SewerageConnection> sewarageConnectionList;
 		sewarageConnectionList = getSewerageConnectionsList(criteria, requestInfo);
+		validateProperty.validatePropertyForConnection(sewarageConnectionList);
 		enrichmentService.enrichSewerageSearch(sewarageConnectionList, requestInfo,criteria);
 		return sewarageConnectionList;
 	}
