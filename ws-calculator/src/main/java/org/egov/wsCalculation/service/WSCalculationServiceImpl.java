@@ -68,11 +68,11 @@ public class WSCalculationServiceImpl implements WSCalculationService {
 	/**
 	 * Get CalculationReq and Calculate the Tax Head on Water Charge
 	 */
-	public CalculationRes getCalculation(CalculationReq request) {
+	public List<Calculation> getCalculation(CalculationReq request) {
 		Map<String, Object> masterMap = mDataService.getMasterMap(request);
 		List<Calculation> calculations = getCalculations(request, masterMap);
 		demandService.generateDemand(request.getRequestInfo(), calculations, masterMap);
-		return new CalculationRes(new ResponseInfo(),calculations);
+		return calculations;
 	}
 
 	

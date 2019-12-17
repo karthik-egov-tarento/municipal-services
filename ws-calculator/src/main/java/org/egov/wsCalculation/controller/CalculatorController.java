@@ -1,11 +1,17 @@
 package org.egov.wsCalculation.controller;
 
 
+import java.util.List;
+
 import javax.validation.Valid;
+
+import org.egov.wsCalculation.model.Calculation;
 import org.egov.wsCalculation.model.CalculationReq;
 import org.egov.wsCalculation.model.CalculationRes;
+import org.egov.wsCalculation.model.Demand;
 import org.egov.wsCalculation.model.DemandResponse;
 import org.egov.wsCalculation.model.GetBillCriteria;
+import org.egov.wsCalculation.model.MeterReadingResponse;
 import org.egov.wsCalculation.model.RequestInfoWrapper;
 import org.egov.wsCalculation.service.DemandService;
 import org.egov.wsCalculation.service.WSCalculationService;
@@ -44,13 +50,22 @@ public class CalculatorController {
 	
 	@PostMapping("/_calculate")
 	public ResponseEntity<CalculationRes> calculate(@RequestBody @Valid CalculationReq calculationReq) {
-		return new ResponseEntity<>(wSCalculationService.getCalculation(calculationReq), HttpStatus.OK);
+		List<Calculation> calculations = wSCalculationService.getCalculation(calculationReq);
+		CalculationRes response = CalculationRes.builder().calculation(calculations)
+				.responseInfo(
+						responseInfoFactory.createResponseInfoFromRequestInfo(calculationReq.getRequestInfo(), true))
+				.build();
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 	
 	@PostMapping("/_updateDemand")
 	public ResponseEntity<DemandResponse> updateDemands(@RequestBody @Valid RequestInfoWrapper requestInfoWrapper,
 			@ModelAttribute @Valid GetBillCriteria getBillCriteria) {
-		return new ResponseEntity<>(demandService.updateDemands(getBillCriteria, requestInfoWrapper), HttpStatus.OK);
+		List<Demand> demands = demandService.updateDemands(getBillCriteria, requestInfoWrapper);
+		DemandResponse response = DemandResponse.builder().demands(demands).responseInfo(
+				responseInfoFactory.createResponseInfoFromRequestInfo(requestInfoWrapper.getRequestInfo(), true))
+				.build();
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 	
 	@PostMapping("/_jobscheduler")

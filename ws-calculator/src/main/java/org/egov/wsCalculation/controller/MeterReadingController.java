@@ -33,7 +33,7 @@ public class MeterReadingController {
 	private final ResponseInfoFactory responseInfoFactory;
 
 	@Autowired
-	MeterService meterService;
+	private MeterService meterService;
 
 	@RequestMapping(value = "/_create", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<MeterReadingResponse> createMeterReading(

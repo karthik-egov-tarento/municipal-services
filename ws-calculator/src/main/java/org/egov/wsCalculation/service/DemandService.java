@@ -433,7 +433,7 @@ public class DemandService {
 	 * @param requestInfoWrapper contains request info wrapper
 	 * @return updated demand response
 	 */
-	public DemandResponse updateDemands(GetBillCriteria getBillCriteria, RequestInfoWrapper requestInfoWrapper) {
+	public List<Demand> updateDemands(GetBillCriteria getBillCriteria, RequestInfoWrapper requestInfoWrapper) {
 
 		if (getBillCriteria.getAmountExpected() == null)
 			getBillCriteria.setAmountExpected(BigDecimal.ZERO);
@@ -504,7 +504,7 @@ public class DemandService {
 		DemandRequest request = DemandRequest.builder().demands(demandsToBeUpdated).requestInfo(requestInfo).build();
 		StringBuilder updateDemandUrl = utils.getUpdateDemandUrl();
 		repository.fetchResult(updateDemandUrl, request);
-		return res;
+		return res.getDemands();
 
 	}
 

@@ -12,7 +12,7 @@ import org.egov.wsCalculation.model.CalculationCriteria;
 
 public interface WSCalculationService {
 
-	public CalculationRes getCalculation(CalculationReq calculationReq);
+	public List<Calculation> getCalculation(CalculationReq calculationReq);
 	
 	public void jobscheduler();
 }
