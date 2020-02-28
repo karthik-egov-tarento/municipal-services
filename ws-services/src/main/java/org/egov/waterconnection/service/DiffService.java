@@ -1,4 +1,4 @@
-package org.egov.waterConnection.service;
+package org.egov.waterconnection.service;
 
 
 
@@ -6,9 +6,9 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.egov.waterConnection.constants.WCConstants;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.constants.WCConstants;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionRequest;
 import org.javers.core.Javers;
 import org.javers.core.JaversBuilder;
 import org.javers.core.diff.Diff;

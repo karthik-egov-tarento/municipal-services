@@ -1,4 +1,4 @@
-package org.egov.waterConnection.service;
+package org.egov.waterconnection.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,17 +8,17 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.egov.common.contract.request.RequestInfo;
-import org.egov.waterConnection.config.WSConfiguration;
-import org.egov.waterConnection.constants.WCConstants;
-import org.egov.waterConnection.model.Action;
-import org.egov.waterConnection.model.Event;
-import org.egov.waterConnection.model.EventRequest;
-import org.egov.waterConnection.model.Recepient;
-import org.egov.waterConnection.model.SMSRequest;
-import org.egov.waterConnection.model.Source;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionRequest;
-import org.egov.waterConnection.util.NotificationUtil;
+import org.egov.waterconnection.config.WSConfiguration;
+import org.egov.waterconnection.constants.WCConstants;
+import org.egov.waterconnection.model.Action;
+import org.egov.waterconnection.model.Event;
+import org.egov.waterconnection.model.EventRequest;
+import org.egov.waterconnection.model.Recepient;
+import org.egov.waterconnection.model.SMSRequest;
+import org.egov.waterconnection.model.Source;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.util.NotificationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -61,7 +61,7 @@ public class EditNotificationService {
 				}
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			log.error("Failed to send notification. Exception: ", ex);
 		}
 	}
 

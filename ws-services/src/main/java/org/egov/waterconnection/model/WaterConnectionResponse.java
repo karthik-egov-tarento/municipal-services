@@ -1,4 +1,4 @@
-package org.egov.waterConnection.model;
+package org.egov.waterconnection.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.egov.common.contract.response.ResponseInfo;
-import org.egov.waterConnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnection;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;

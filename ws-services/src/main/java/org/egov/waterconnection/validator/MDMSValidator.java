@@ -1,4 +1,4 @@
-package org.egov.waterConnection.validator;
+package org.egov.waterconnection.validator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,11 +12,11 @@ import java.util.stream.Stream;
 import org.egov.common.contract.request.RequestInfo;
 import org.egov.mdms.model.MdmsCriteriaReq;
 import org.egov.tracer.model.CustomException;
-import org.egov.waterConnection.constants.WCConstants;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionRequest;
-import org.egov.waterConnection.repository.ServiceRequestRepository;
-import org.egov.waterConnection.util.WaterServicesUtil;
+import org.egov.waterconnection.constants.WCConstants;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.repository.ServiceRequestRepository;
+import org.egov.waterconnection.util.WaterServicesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -41,6 +41,8 @@ public class MDMSValidator {
 
 	@Value("${egov.mdms.search.endpoint}")
 	private String mdmsEndpoint;
+	
+	private final static String DOES_NOT_EXIST_ERROR = " does not exist.";
     
 	/**
 	 * Validate Master data for given request
@@ -52,8 +54,8 @@ public class MDMSValidator {
 			String jsonPath = WCConstants.JSONPATH_ROOT;
 			String taxjsonPath = WCConstants.TAX_JSONPATH_ROOT;
 			String tenantId = request.getRequestInfo().getUserInfo().getTenantId();
-			List<String> names = new ArrayList<>(Arrays.asList(WCConstants.MDMS_WC_Connection_Type, WCConstants.MDMS_WC_Connection_Category,
-					WCConstants.MDMS_WC_Water_Source));
+			List<String> names = new ArrayList<>(Arrays.asList(WCConstants.MDMS_WC_CONNECTION_TYPE, WCConstants.MDMS_WC_CONNECTION_CATEGORY,
+					WCConstants.MDMS_WC_WATER_SOURCE));
 			List<String> taxModelnames = new ArrayList<>(Arrays.asList(WCConstants.WC_ROADTYPE_MASTER));
 			Map<String, List<String>> codes = getAttributeValues(tenantId, WCConstants.MDMS_WC_MOD_NAME, names,
 					"$.*.code", jsonPath, request.getRequestInfo());
@@ -61,8 +63,8 @@ public class MDMSValidator {
 					taxModelnames, "$.*.code", taxjsonPath, request.getRequestInfo());
 			
 			//merge codes
-			String[] finalmasterNames = { WCConstants.MDMS_WC_Connection_Type, WCConstants.MDMS_WC_Connection_Category,
-					WCConstants.MDMS_WC_Water_Source, WCConstants.WC_ROADTYPE_MASTER };
+			String[] finalmasterNames = { WCConstants.MDMS_WC_CONNECTION_TYPE, WCConstants.MDMS_WC_CONNECTION_CATEGORY,
+					WCConstants.MDMS_WC_WATER_SOURCE, WCConstants.WC_ROADTYPE_MASTER };
 			Map<String, List<String>> finalcodes = Stream.of(codes, codeFromCalculatorMaster).map(Map::entrySet)
 					.flatMap(Collection::stream).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 			validateMDMSData(finalmasterNames, finalcodes);
@@ -110,14 +112,14 @@ public class MDMSValidator {
 		Map<String, String> errorMap = new HashMap<>();
 		StringBuilder messageBuilder = new StringBuilder();
 		if (!StringUtils.isEmpty(waterConnection.getConnectionType())
-				&& !codes.get(WCConstants.MDMS_WC_Connection_Type).contains(waterConnection.getConnectionType())) {
+				&& !codes.get(WCConstants.MDMS_WC_CONNECTION_TYPE).contains(waterConnection.getConnectionType())) {
 			messageBuilder = new StringBuilder();
 			messageBuilder.append("The WaterConnection connection type ").append(waterConnection.getConnectionType())
-					.append(" does not exists");
+					.append(DOES_NOT_EXIST_ERROR);
 			errorMap.put("INVALID_WATER_CONNECTION_TYPE", messageBuilder.toString());
 		}
 		if (!StringUtils.isEmpty(waterConnection.getConnectionCategory()) && !codes
-				.get(WCConstants.MDMS_WC_Connection_Category).contains(waterConnection.getConnectionCategory())) {
+				.get(WCConstants.MDMS_WC_CONNECTION_CATEGORY).contains(waterConnection.getConnectionCategory())) {
 			messageBuilder = new StringBuilder();
 			messageBuilder.append("The WaterConnection connection category ")
 					.append(waterConnection.getConnectionCategory()).append(" does not exists");
@@ -125,17 +127,17 @@ public class MDMSValidator {
 					"The WaterConnection connection category" + messageBuilder.toString());
 		}
 		if (!StringUtils.isEmpty(waterConnection.getWaterSource())
-				&& !codes.get(WCConstants.MDMS_WC_Water_Source).contains(waterConnection.getWaterSource())) {
+				&& !codes.get(WCConstants.MDMS_WC_WATER_SOURCE).contains(waterConnection.getWaterSource())) {
 			messageBuilder = new StringBuilder();
 			messageBuilder.append("The WaterConnection connection source ").append(waterConnection.getWaterSource())
-					.append(" does not exists");
+					.append(DOES_NOT_EXIST_ERROR);
 			errorMap.put("INVALID_WATER_CONNECTION_SOURCE", messageBuilder.toString());
 		}
 		if (!StringUtils.isEmpty(waterConnection.getRoadType())
 				&& !codes.get(WCConstants.WC_ROADTYPE_MASTER).contains(waterConnection.getRoadType())) {
 			messageBuilder = new StringBuilder();
 			messageBuilder.append("The WaterConnection road type ").append(waterConnection.getRoadType())
-					.append(" does not exists");
+					.append(DOES_NOT_EXIST_ERROR);
 			errorMap.put("INVALID_WATER_ROAD_TYPE", messageBuilder.toString());
 		}
 

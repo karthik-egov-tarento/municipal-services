@@ -1,4 +1,4 @@
-package org.egov.waterConnection.workflow;
+package org.egov.waterconnection.workflow;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.egov.tracer.model.CustomException;
-import org.egov.waterConnection.config.WSConfiguration;
-import org.egov.waterConnection.model.Connection.ApplicationStatusEnum;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.config.WSConfiguration;
+import org.egov.waterconnection.model.Connection.ApplicationStatusEnum;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;

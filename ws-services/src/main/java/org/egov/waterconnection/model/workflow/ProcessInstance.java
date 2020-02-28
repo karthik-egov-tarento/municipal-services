@@ -1,4 +1,4 @@
-package org.egov.waterConnection.model.workflow;
+package org.egov.waterconnection.model.workflow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.egov.common.contract.request.User;
-import org.egov.waterConnection.model.Document;
+import org.egov.waterconnection.model.Document;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;

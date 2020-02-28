@@ -1,4 +1,4 @@
-package org.egov.waterConnection.constants;
+package org.egov.waterconnection.constants;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,11 +24,11 @@ public class WCConstants {
 	
 	public static final String WS_TAX_MODULE = "ws-services-calculation";
 
-	public static final String MDMS_WC_Connection_Category = "connectionCategory";
+	public static final String MDMS_WC_CONNECTION_CATEGORY = "connectionCategory";
 
-	public static final String MDMS_WC_Connection_Type = "connectionType";
+	public static final String MDMS_WC_CONNECTION_TYPE = "connectionType";
 
-	public static final String MDMS_WC_Water_Source = "waterSource";
+	public static final String MDMS_WC_WATER_SOURCE = "waterSource";
 
 	public static final String INVALID_CONNECTION_CATEGORY = "Invalid Connection Category";
 

@@ -1,9 +1,9 @@
-package org.egov.waterConnection.model.workflow;
+package org.egov.waterconnection.model.workflow;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
-import org.egov.waterConnection.model.AuditDetails;
+import org.egov.waterconnection.model.AuditDetails;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;

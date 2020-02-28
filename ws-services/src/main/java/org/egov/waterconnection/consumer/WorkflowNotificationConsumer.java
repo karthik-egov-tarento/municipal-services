@@ -1,10 +1,10 @@
-package org.egov.waterConnection.consumer;
+package org.egov.waterconnection.consumer;
 
 import java.util.HashMap;
 import java.util.List;
 
-import org.egov.waterConnection.model.WaterConnectionRequest;
-import org.egov.waterConnection.service.WorkflowNotificationService;
+import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.service.WorkflowNotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;

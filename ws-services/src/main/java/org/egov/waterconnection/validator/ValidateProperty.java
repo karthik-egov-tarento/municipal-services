@@ -1,4 +1,4 @@
-package org.egov.waterConnection.validator;
+package org.egov.waterconnection.validator;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,10 +7,10 @@ import java.util.Map;
 import java.util.Set;
 
 import org.egov.tracer.model.CustomException;
-import org.egov.waterConnection.model.Property;
-import org.egov.waterConnection.model.WaterConnectionRequest;
-import org.egov.waterConnection.model.SearchCriteria;
-import org.egov.waterConnection.util.WaterServicesUtil;
+import org.egov.waterconnection.model.Property;
+import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.model.SearchCriteria;
+import org.egov.waterconnection.util.WaterServicesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;

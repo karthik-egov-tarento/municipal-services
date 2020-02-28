@@ -1,4 +1,4 @@
-package org.egov.waterConnection.service;
+package org.egov.waterconnection.service;
 
 
 import java.time.Instant;
@@ -13,20 +13,20 @@ import java.util.stream.Collectors;
 
 import org.egov.common.contract.request.RequestInfo;
 import org.egov.tracer.model.CustomException;
-import org.egov.waterConnection.config.WSConfiguration;
-import org.egov.waterConnection.constants.WCConstants;
-import org.egov.waterConnection.model.AuditDetails;
-import org.egov.waterConnection.model.Connection.ApplicationStatusEnum;
-import org.egov.waterConnection.model.Connection.StatusEnum;
-import org.egov.waterConnection.model.Property;
-import org.egov.waterConnection.model.SearchCriteria;
-import org.egov.waterConnection.model.Status;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionRequest;
-import org.egov.waterConnection.model.Idgen.IdResponse;
-import org.egov.waterConnection.repository.IdGenRepository;
-import org.egov.waterConnection.util.WaterServicesUtil;
-import org.egov.waterConnection.validator.ValidateProperty;
+import org.egov.waterconnection.config.WSConfiguration;
+import org.egov.waterconnection.constants.WCConstants;
+import org.egov.waterconnection.model.AuditDetails;
+import org.egov.waterconnection.model.Connection.ApplicationStatusEnum;
+import org.egov.waterconnection.model.Connection.StatusEnum;
+import org.egov.waterconnection.model.Property;
+import org.egov.waterconnection.model.SearchCriteria;
+import org.egov.waterconnection.model.Status;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.model.Idgen.IdResponse;
+import org.egov.waterconnection.repository.IdGenRepository;
+import org.egov.waterconnection.util.WaterServicesUtil;
+import org.egov.waterconnection.validator.ValidateProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;

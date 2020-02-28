@@ -1,11 +1,11 @@
-package org.egov.waterConnection.repository;
+package org.egov.waterconnection.repository;
 
 import java.util.List;
 
 import org.egov.common.contract.request.RequestInfo;
-import org.egov.waterConnection.model.SearchCriteria;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.model.SearchCriteria;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionRequest;
 
 public interface WaterDao {
 	public void saveWaterConnection(WaterConnectionRequest waterConnectionRequest);

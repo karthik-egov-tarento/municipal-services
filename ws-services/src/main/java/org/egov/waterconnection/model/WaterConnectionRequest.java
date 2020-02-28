@@ -1,4 +1,4 @@
-package org.egov.waterConnection.model;
+package org.egov.waterconnection.model;
 
 import java.util.List;
 import java.util.Objects;
@@ -14,8 +14,8 @@ import lombok.Setter;
 
 import org.egov.common.contract.request.RequestInfo;
 import org.egov.common.contract.response.ResponseInfo;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionResponse.WaterConnectionResponseBuilder;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionResponse.WaterConnectionResponseBuilder;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;

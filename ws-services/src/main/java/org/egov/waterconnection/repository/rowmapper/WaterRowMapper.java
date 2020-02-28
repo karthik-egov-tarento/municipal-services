@@ -1,4 +1,4 @@
-package org.egov.waterConnection.repository.rowmapper;
+package org.egov.waterconnection.repository.rowmapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.egov.waterConnection.model.Connection.ApplicationStatusEnum;
-import org.egov.waterConnection.model.Connection.StatusEnum;
-import org.egov.waterConnection.model.enums.Status;
-import org.egov.waterConnection.model.Document;
-import org.egov.waterConnection.model.PlumberInfo;
-import org.egov.waterConnection.model.PlumberInfo.RelationshipEnum;
-import org.egov.waterConnection.model.Property;
-import org.egov.waterConnection.model.WaterConnection;
+import org.egov.waterconnection.model.Connection.ApplicationStatusEnum;
+import org.egov.waterconnection.model.Connection.StatusEnum;
+import org.egov.waterconnection.model.enums.Status;
+import org.egov.waterconnection.model.Document;
+import org.egov.waterconnection.model.PlumberInfo;
+import org.egov.waterconnection.model.PlumberInfo.RelationshipEnum;
+import org.egov.waterconnection.model.Property;
+import org.egov.waterconnection.model.WaterConnection;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Component;
@@ -68,17 +68,17 @@ public class WaterRowMapper implements ResultSetExtractor<List<WaterConnection>>
 	private void addChildrenToProperty(ResultSet rs, WaterConnection waterConnection) throws SQLException {
 		String document_Id = rs.getString("doc_Id");
 		String isActive = rs.getString("doc_active");
-		String activeString = Status.ACTIVE.name();
 		boolean documentActive = false;
-		if(isActive != null)
-		documentActive = isActive.equalsIgnoreCase(activeString) == true ? true : false;
+		if(isActive != null) {
+			documentActive = Status.ACTIVE.name().equalsIgnoreCase(isActive);
+		}
 		if (document_Id != null && documentActive) {
 			Document applicationDocument = new Document();
 			applicationDocument.setId(document_Id);
 			applicationDocument.setDocumentType(rs.getString("documenttype"));
 			applicationDocument.setFileStoreId(rs.getString("filestoreid"));
 			applicationDocument.setDocumentUid(rs.getString("doc_Id"));
-			applicationDocument.setStatus(org.egov.waterConnection.model.Status.fromValue(isActive));
+			applicationDocument.setStatus(org.egov.waterconnection.model.Status.fromValue(isActive));
 			waterConnection.addDocumentsItem(applicationDocument);
 		}
 		String plumber_id = rs.getString("plumber_id");

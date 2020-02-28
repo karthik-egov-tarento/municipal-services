@@ -1,13 +1,13 @@
-package org.egov.waterConnection.repository;
+package org.egov.waterconnection.repository;
 
 
 import org.egov.common.contract.request.RequestInfo;
 import org.egov.tracer.model.CustomException;
 import org.egov.tracer.model.ServiceCallException;
-import org.egov.waterConnection.config.WSConfiguration;
-import org.egov.waterConnection.model.Idgen.IdGenerationRequest;
-import org.egov.waterConnection.model.Idgen.IdGenerationResponse;
-import org.egov.waterConnection.model.Idgen.IdRequest;
+import org.egov.waterconnection.config.WSConfiguration;
+import org.egov.waterconnection.model.Idgen.IdGenerationRequest;
+import org.egov.waterconnection.model.Idgen.IdGenerationResponse;
+import org.egov.waterconnection.model.Idgen.IdRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.HttpClientErrorException;

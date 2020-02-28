@@ -1,11 +1,11 @@
-package org.egov.waterConnection.service;
+package org.egov.waterconnection.service;
 
 import java.util.List;
 
 import org.egov.common.contract.request.RequestInfo;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionRequest;
-import org.egov.waterConnection.model.SearchCriteria;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.model.SearchCriteria;
 
 public interface WaterService {
 

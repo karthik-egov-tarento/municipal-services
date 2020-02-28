@@ -1,4 +1,4 @@
-package org.egov.waterConnection.producer;
+package org.egov.waterconnection.producer;
 
 import org.egov.tracer.kafka.CustomKafkaTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

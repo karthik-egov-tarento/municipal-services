@@ -1,4 +1,4 @@
-package org.egov.waterConnection.service;
+package org.egov.waterconnection.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,19 +10,19 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.lang.StringUtils;
 import org.egov.common.contract.request.RequestInfo;
-import org.egov.waterConnection.config.WSConfiguration;
-import org.egov.waterConnection.constants.WCConstants;
-import org.egov.waterConnection.model.Action;
-import org.egov.waterConnection.model.ActionItem;
-import org.egov.waterConnection.model.Event;
-import org.egov.waterConnection.model.EventRequest;
-import org.egov.waterConnection.model.Recepient;
-import org.egov.waterConnection.model.SMSRequest;
-import org.egov.waterConnection.model.Source;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionRequest;
-import org.egov.waterConnection.repository.ServiceRequestRepository;
-import org.egov.waterConnection.util.NotificationUtil;
+import org.egov.waterconnection.config.WSConfiguration;
+import org.egov.waterconnection.constants.WCConstants;
+import org.egov.waterconnection.model.Action;
+import org.egov.waterconnection.model.ActionItem;
+import org.egov.waterconnection.model.Event;
+import org.egov.waterconnection.model.EventRequest;
+import org.egov.waterconnection.model.Recepient;
+import org.egov.waterconnection.model.SMSRequest;
+import org.egov.waterconnection.model.Source;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.repository.ServiceRequestRepository;
+import org.egov.waterconnection.util.NotificationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -47,6 +47,8 @@ public class WorkflowNotificationService {
 	
 	@Autowired
 	private ObjectMapper mapper;
+	
+	private final static String ACTION_BUTTON = "<Action Button>";
 	
 
 	/**
@@ -148,9 +150,9 @@ public class WorkflowNotificationService {
 			String mobileNumber, WaterConnection connection) {
 		String messageTemplate = mobileNumberAndMesssage.get(mobileNumber);
 		List<ActionItem> items = new ArrayList<>();
-		if (messageTemplate.contains("<Action Button>")) {
-			String code = StringUtils.substringBetween(messageTemplate, "<Action Button>", "</Action Button>");
-			messageTemplate = messageTemplate.replace("<Action Button>", "");
+		if (messageTemplate.contains(ACTION_BUTTON)) {
+			String code = StringUtils.substringBetween(messageTemplate, ACTION_BUTTON, ACTION_BUTTON);
+			messageTemplate = messageTemplate.replace(ACTION_BUTTON, "");
 			messageTemplate = messageTemplate.replace("</Action Button>", "");
 			messageTemplate = messageTemplate.replace(code, "");
 			String actionLink = "";

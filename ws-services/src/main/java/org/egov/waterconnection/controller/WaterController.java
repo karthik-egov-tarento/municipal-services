@@ -1,15 +1,15 @@
-package org.egov.waterConnection.controller;
+package org.egov.waterconnection.controller;
 
 import java.util.List;
 import javax.validation.Valid;
 
-import org.egov.waterConnection.model.RequestInfoWrapper;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionRequest;
-import org.egov.waterConnection.model.WaterConnectionResponse;
-import org.egov.waterConnection.model.SearchCriteria;
-import org.egov.waterConnection.service.WaterService;
-import org.egov.waterConnection.util.ResponseInfoFactory;
+import org.egov.waterconnection.model.RequestInfoWrapper;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.model.WaterConnectionResponse;
+import org.egov.waterconnection.model.SearchCriteria;
+import org.egov.waterconnection.service.WaterService;
+import org.egov.waterconnection.util.ResponseInfoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package org.egov.waterConnection.model;
+package org.egov.waterconnection.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

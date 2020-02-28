@@ -1,4 +1,4 @@
-package org.egov.waterConnection.model.users;
+package org.egov.waterconnection.model.users;
 
 import java.util.ArrayList;
 import java.util.List;

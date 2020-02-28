@@ -1,14 +1,14 @@
-package org.egov.waterConnection.workflow;
+package org.egov.waterconnection.workflow;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.egov.common.contract.request.RequestInfo;
 import org.egov.tracer.model.CustomException;
-import org.egov.waterConnection.config.WSConfiguration;
-import org.egov.waterConnection.model.RequestInfoWrapper;
-import org.egov.waterConnection.model.workflow.BusinessService;
-import org.egov.waterConnection.model.workflow.BusinessServiceResponse;
-import org.egov.waterConnection.model.workflow.State;
-import org.egov.waterConnection.repository.ServiceRequestRepository;
+import org.egov.waterconnection.config.WSConfiguration;
+import org.egov.waterconnection.model.RequestInfoWrapper;
+import org.egov.waterconnection.model.workflow.BusinessService;
+import org.egov.waterconnection.model.workflow.BusinessServiceResponse;
+import org.egov.waterconnection.model.workflow.State;
+import org.egov.waterconnection.repository.ServiceRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -72,7 +72,7 @@ public class WorkflowService {
            if(state.getApplicationStatus()!=null && state.getApplicationStatus().equalsIgnoreCase(stateCode))
                return state.getIsStateUpdatable();
        }
-       return null;
+       return Boolean.FALSE;
     }
 
 

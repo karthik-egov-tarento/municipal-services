@@ -1,4 +1,4 @@
-package org.egov.waterConnection;
+package org.egov.waterconnection;
 
 import java.util.TimeZone;
 
@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@SpringBootApplication(scanBasePackages = "org.egov.waterConnection")
+@SpringBootApplication(scanBasePackages = "org.egov.waterconnection")
 @EnableAutoConfiguration
 @Import({ TracerConfiguration.class })
 @EnableWebMvc

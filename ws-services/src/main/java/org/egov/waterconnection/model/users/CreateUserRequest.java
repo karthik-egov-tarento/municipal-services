@@ -1,7 +1,7 @@
-package org.egov.waterConnection.model.users;
+package org.egov.waterconnection.model.users;
 
 import org.egov.common.contract.request.RequestInfo;
-import org.egov.waterConnection.model.OwnerInfo;
+import org.egov.waterconnection.model.OwnerInfo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

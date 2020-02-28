@@ -1,4 +1,4 @@
-package org.egov.waterConnection.model;
+package org.egov.waterconnection.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.egov.common.contract.request.Role;
-import org.egov.waterConnection.model.users.User;
+import org.egov.waterconnection.model.users.User;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -129,7 +129,7 @@ public class OwnerInfo extends User{
 				accountLocked, roles, fatherOrHusbandName, bloodGroup, identificationMark, photo, createdBy,
 				createdDate, lastModifiedBy, lastModifiedDate, tenantId);
 		this.ownerInfoUuid = ownerInfoUuid;
-		mobileNumber = mobileNumber2;
+		this.mobileNumber = mobileNumber2;
 		gender = gender2;
 		fatherOrHusbandName = fatherOrHusbandName2;
 		correspondenceAddress = correspondenceAddress2;

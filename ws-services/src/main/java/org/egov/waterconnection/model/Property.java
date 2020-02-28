@@ -1,4 +1,4 @@
-package org.egov.waterConnection.model;
+package org.egov.waterconnection.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.egov.waterConnection.model.enums.Source;
-import org.egov.waterConnection.model.workflow.ProcessInstance;
+import org.egov.waterconnection.model.enums.Source;
+import org.egov.waterconnection.model.workflow.ProcessInstance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -1,4 +1,4 @@
-package org.egov.waterConnection.util;
+package org.egov.waterconnection.util;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -6,12 +6,12 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.egov.common.contract.request.RequestInfo;
-import org.egov.waterConnection.config.WSConfiguration;
-import org.egov.waterConnection.constants.WCConstants;
-import org.egov.waterConnection.model.EventRequest;
-import org.egov.waterConnection.model.SMSRequest;
-import org.egov.waterConnection.producer.WaterConnectionProducer;
-import org.egov.waterConnection.repository.ServiceRequestRepository;
+import org.egov.waterconnection.config.WSConfiguration;
+import org.egov.waterconnection.constants.WCConstants;
+import org.egov.waterconnection.model.EventRequest;
+import org.egov.waterconnection.model.SMSRequest;
+import org.egov.waterconnection.producer.WaterConnectionProducer;
+import org.egov.waterconnection.repository.ServiceRequestRepository;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

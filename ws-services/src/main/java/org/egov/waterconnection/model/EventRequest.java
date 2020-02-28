@@ -38,7 +38,7 @@
  *  In case of any queries, you can reach eGovernments Foundation at contact@egovernments.org.
  */
 
-package org.egov.waterConnection.model;
+package org.egov.waterconnection.model;
 
 import java.util.List;
 

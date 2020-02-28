@@ -1,16 +1,16 @@
-package org.egov.waterConnection.service;
+package org.egov.waterconnection.service;
 
 import java.util.Arrays;
 import java.util.List;
 
 import org.egov.tracer.model.CustomException;
-import org.egov.waterConnection.constants.WCConstants;
-import org.egov.waterConnection.model.CalculationCriteria;
-import org.egov.waterConnection.model.CalculationReq;
-import org.egov.waterConnection.model.CalculationRes;
-import org.egov.waterConnection.model.WaterConnectionRequest;
-import org.egov.waterConnection.repository.ServiceRequestRepository;
-import org.egov.waterConnection.util.WaterServicesUtil;
+import org.egov.waterconnection.constants.WCConstants;
+import org.egov.waterconnection.model.CalculationCriteria;
+import org.egov.waterconnection.model.CalculationReq;
+import org.egov.waterconnection.model.CalculationRes;
+import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.repository.ServiceRequestRepository;
+import org.egov.waterconnection.util.WaterServicesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

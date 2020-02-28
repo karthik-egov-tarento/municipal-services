@@ -1,4 +1,4 @@
-package org.egov.waterConnection.util;
+package org.egov.waterconnection.util;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,19 +13,19 @@ import org.egov.mdms.model.MdmsCriteria;
 import org.egov.mdms.model.MdmsCriteriaReq;
 import org.egov.mdms.model.ModuleDetail;
 import org.egov.tracer.model.CustomException;
-import org.egov.waterConnection.config.WSConfiguration;
-import org.egov.waterConnection.model.AuditDetails;
-import org.egov.waterConnection.model.Property;
-import org.egov.waterConnection.model.PropertyCriteria;
-import org.egov.waterConnection.model.PropertyRequest;
-import org.egov.waterConnection.model.PropertyResponse;
-import org.egov.waterConnection.model.RequestInfoWrapper;
-import org.egov.waterConnection.model.SearchCriteria;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionRequest;
-import org.egov.waterConnection.model.workflow.BusinessService;
-import org.egov.waterConnection.repository.ServiceRequestRepository;
-import org.egov.waterConnection.workflow.WorkflowService;
+import org.egov.waterconnection.config.WSConfiguration;
+import org.egov.waterconnection.model.AuditDetails;
+import org.egov.waterconnection.model.Property;
+import org.egov.waterconnection.model.PropertyCriteria;
+import org.egov.waterconnection.model.PropertyRequest;
+import org.egov.waterconnection.model.PropertyResponse;
+import org.egov.waterconnection.model.RequestInfoWrapper;
+import org.egov.waterconnection.model.SearchCriteria;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.model.workflow.BusinessService;
+import org.egov.waterconnection.repository.ServiceRequestRepository;
+import org.egov.waterconnection.workflow.WorkflowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -240,9 +240,9 @@ public class WaterServicesUtil {
 		String url = getpropertySearchURLForMobileSearchCitizen();
 		if(tenantId != null)
 			url = getpropertySearchURLForMobileSearch();
-		if (url.indexOf("{1}") > 0)
+		if (url.indexOf("{1}") >= 0)
 			url = url.replace("{1}", tenantId);
-		if (url.indexOf("{2}") > 0)
+		if (url.indexOf("{2}") >= 0)
 			url = url.replace("{2}", mobileNumber);
 		return new StringBuilder(url);
 	}
@@ -279,9 +279,9 @@ public class WaterServicesUtil {
 		String url = getPropertySearchURLForCitizen();
 		if (tenantId != null)
 			url = getPropertySearchURLForEmployee();
-		if (url.indexOf("{1}") > 0)
+		if (url.indexOf("{1}") >= 0)
 			url = url.replace("{1}", tenantId);
-		if (url.indexOf("{2}") > 0)
+		if (url.indexOf("{2}") >= 0)
 			url = url.replace("{2}", propertyIds);
 		return new StringBuilder(url);
 	}

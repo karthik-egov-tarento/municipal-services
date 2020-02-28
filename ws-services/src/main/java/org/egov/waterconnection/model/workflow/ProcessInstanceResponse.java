@@ -1,4 +1,4 @@
-package org.egov.waterConnection.model.workflow;
+package org.egov.waterconnection.model.workflow;
 
 import java.util.ArrayList;
 import java.util.List;

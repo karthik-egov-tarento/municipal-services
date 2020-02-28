@@ -1,15 +1,15 @@
-package org.egov.waterConnection.validator;
+package org.egov.waterconnection.validator;
 
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.egov.tracer.model.CustomException;
-import org.egov.waterConnection.constants.WCConstants;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionRequest;
-import org.egov.waterConnection.model.workflow.BusinessService;
-import org.egov.waterConnection.workflow.WorkflowService;
+import org.egov.waterconnection.constants.WCConstants;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.model.workflow.BusinessService;
+import org.egov.waterconnection.workflow.WorkflowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;

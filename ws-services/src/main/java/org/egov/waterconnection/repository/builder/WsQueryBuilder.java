@@ -1,14 +1,14 @@
-package org.egov.waterConnection.repository.builder;
+package org.egov.waterconnection.repository.builder;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.egov.common.contract.request.RequestInfo;
-import org.egov.waterConnection.config.WSConfiguration;
-import org.egov.waterConnection.model.Property;
-import org.egov.waterConnection.model.SearchCriteria;
-import org.egov.waterConnection.util.WaterServicesUtil;
+import org.egov.waterconnection.config.WSConfiguration;
+import org.egov.waterconnection.model.Property;
+import org.egov.waterconnection.model.SearchCriteria;
+import org.egov.waterconnection.util.WaterServicesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -26,7 +26,7 @@ public class WsQueryBuilder {
 	private static final String INNER_JOIN_STRING = "INNER JOIN";
     private static final String LEFT_OUTER_JOIN_STRING = " LEFT OUTER JOIN ";
 //	private static final String Offset_Limit_String = "OFFSET ? LIMIT ?";
-	private final static String WATER_SEARCH_Query = "SELECT conn.*, wc.*, document.*, plumber.*, wc.connectionCategory, wc.rainWaterHarvesting, wc.connectionType, wc.waterSource,"
+	private final static String WATER_SEARCH_QUERY = "SELECT conn.*, wc.*, document.*, plumber.*, wc.connectionCategory, wc.rainWaterHarvesting, wc.connectionType, wc.waterSource,"
 			+ " wc.meterId, wc.meterInstallationDate, wc.pipeSize, wc.noOfTaps, wc.proposedPipeSize, wc.proposedTaps, wc.uom, wc.waterSubSource, wc.connection_id as connection_Id, wc.connectionExecutionDate,"
 			+ " conn.id as conn_id, conn.applicationNo, conn.applicationStatus, conn.status, conn.connectionNo, conn.oldConnectionNo, conn.property_id, conn.roadcuttingarea, conn.action,"
 			+ " conn.roadtype, document.id as doc_Id, document.documenttype, document.filestoreid, document.active as doc_active, plumber.id as plumber_id, plumber.name as plumber_name, plumber.licenseno,"
@@ -38,7 +38,7 @@ public class WsQueryBuilder {
 			+  LEFT_OUTER_JOIN_STRING
 			+ "eg_ws_plumberinfo plumber ON plumber.wsid = conn.id";
 	
-	private final static String noOfConnectionSearchQuery = "SELECT count(*) FROM connection WHERE";
+	private final static String NO_OF_CONNECTION_SEARCH_QUERY = "SELECT count(*) FROM connection WHERE";
 	
 	private final String paginationWrapper = "SELECT * FROM " +
             "(SELECT *, DENSE_RANK() OVER (ORDER BY conn_id) offset_ FROM " +
@@ -58,7 +58,7 @@ public class WsQueryBuilder {
 	 * @return query as a string
 	 */
 	public String getSearchQueryString(SearchCriteria criteria, List<Object> preparedStatement, RequestInfo requestInfo) {
-		StringBuilder query = new StringBuilder(WATER_SEARCH_Query);
+		StringBuilder query = new StringBuilder(WATER_SEARCH_QUERY);
 		boolean isAnyCriteriaMatch = false;
 		if ((criteria.getMobileNumber() != null && !criteria.getMobileNumber().isEmpty())) {
 			Set<String> propertyIds = new HashSet<>();
@@ -171,7 +171,7 @@ public class WsQueryBuilder {
 	}
 
 	public String getNoOfWaterConnectionQuery(Set<String> connectionIds, List<Object> preparedStatement) {
-		StringBuilder query = new StringBuilder(noOfConnectionSearchQuery);
+		StringBuilder query = new StringBuilder(NO_OF_CONNECTION_SEARCH_QUERY);
 		query.append(" connectionno in (").append(createQuery(connectionIds)).append(" )");
 		addToPreparedStatement(preparedStatement, connectionIds);
 		return query.toString();

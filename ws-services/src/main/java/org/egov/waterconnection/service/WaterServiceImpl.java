@@ -1,4 +1,4 @@
-package org.egov.waterConnection.service;
+package org.egov.waterconnection.service;
 
 
 import java.util.Arrays;
@@ -9,19 +9,19 @@ import java.util.Set;
 
 import org.egov.common.contract.request.RequestInfo;
 import org.egov.tracer.model.CustomException;
-import org.egov.waterConnection.config.WSConfiguration;
-import org.egov.waterConnection.model.SearchCriteria;
-import org.egov.waterConnection.model.WaterConnection;
-import org.egov.waterConnection.model.WaterConnectionRequest;
-import org.egov.waterConnection.model.workflow.BusinessService;
-import org.egov.waterConnection.repository.WaterDao;
-import org.egov.waterConnection.util.WaterServicesUtil;
-import org.egov.waterConnection.validator.ActionValidator;
-import org.egov.waterConnection.validator.MDMSValidator;
-import org.egov.waterConnection.validator.ValidateProperty;
-import org.egov.waterConnection.validator.WaterConnectionValidator;
-import org.egov.waterConnection.workflow.WorkflowIntegrator;
-import org.egov.waterConnection.workflow.WorkflowService;
+import org.egov.waterconnection.config.WSConfiguration;
+import org.egov.waterconnection.model.SearchCriteria;
+import org.egov.waterconnection.model.WaterConnection;
+import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.model.workflow.BusinessService;
+import org.egov.waterconnection.repository.WaterDao;
+import org.egov.waterconnection.util.WaterServicesUtil;
+import org.egov.waterconnection.validator.ActionValidator;
+import org.egov.waterconnection.validator.MDMSValidator;
+import org.egov.waterconnection.validator.ValidateProperty;
+import org.egov.waterconnection.validator.WaterConnectionValidator;
+import org.egov.waterconnection.workflow.WorkflowIntegrator;
+import org.egov.waterconnection.workflow.WorkflowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;

@@ -1,4 +1,4 @@
-package org.egov.waterConnection.util;
+package org.egov.waterconnection.util;
 
 import org.egov.common.contract.request.RequestInfo;
 import org.egov.common.contract.response.ResponseInfo;
