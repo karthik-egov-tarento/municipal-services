@@ -1,4 +1,4 @@
-package org.egov.waterconnection.model.Idgen;
+package org.egov.waterconnection.model.idgen;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

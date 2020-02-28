@@ -1,24 +1,16 @@
 package org.egov.waterconnection.validator;
 
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import org.egov.tracer.model.CustomException;
 import org.egov.waterconnection.model.Property;
 import org.egov.waterconnection.model.WaterConnectionRequest;
-import org.egov.waterconnection.model.SearchCriteria;
 import org.egov.waterconnection.util.WaterServicesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Component
 public class ValidateProperty {
 

@@ -1,10 +1,10 @@
 package org.egov.waterconnection.model;
 
 import java.util.Objects;
-import io.swagger.annotations.ApiModel;
+
 import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+
+import io.swagger.annotations.ApiModel;
 
 /**
  * The dimensions of the plot or building or any unit

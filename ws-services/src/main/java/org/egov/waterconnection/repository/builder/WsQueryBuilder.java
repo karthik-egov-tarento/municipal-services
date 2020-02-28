@@ -26,7 +26,7 @@ public class WsQueryBuilder {
 	private static final String INNER_JOIN_STRING = "INNER JOIN";
     private static final String LEFT_OUTER_JOIN_STRING = " LEFT OUTER JOIN ";
 //	private static final String Offset_Limit_String = "OFFSET ? LIMIT ?";
-	private final static String WATER_SEARCH_QUERY = "SELECT conn.*, wc.*, document.*, plumber.*, wc.connectionCategory, wc.rainWaterHarvesting, wc.connectionType, wc.waterSource,"
+	private static final String WATER_SEARCH_QUERY = "SELECT conn.*, wc.*, document.*, plumber.*, wc.connectionCategory, wc.rainWaterHarvesting, wc.connectionType, wc.waterSource,"
 			+ " wc.meterId, wc.meterInstallationDate, wc.pipeSize, wc.noOfTaps, wc.proposedPipeSize, wc.proposedTaps, wc.uom, wc.waterSubSource, wc.connection_id as connection_Id, wc.connectionExecutionDate,"
 			+ " conn.id as conn_id, conn.applicationNo, conn.applicationStatus, conn.status, conn.connectionNo, conn.oldConnectionNo, conn.property_id, conn.roadcuttingarea, conn.action,"
 			+ " conn.roadtype, document.id as doc_Id, document.documenttype, document.filestoreid, document.active as doc_active, plumber.id as plumber_id, plumber.name as plumber_name, plumber.licenseno,"
@@ -38,15 +38,15 @@ public class WsQueryBuilder {
 			+  LEFT_OUTER_JOIN_STRING
 			+ "eg_ws_plumberinfo plumber ON plumber.wsid = conn.id";
 	
-	private final static String NO_OF_CONNECTION_SEARCH_QUERY = "SELECT count(*) FROM connection WHERE";
+	private static final String NO_OF_CONNECTION_SEARCH_QUERY = "SELECT count(*) FROM connection WHERE";
 	
-	private final String paginationWrapper = "SELECT * FROM " +
+	private static final String paginationWrapper = "SELECT * FROM " +
             "(SELECT *, DENSE_RANK() OVER (ORDER BY conn_id) offset_ FROM " +
             "({})" +
             " result) result_offset " +
             "WHERE offset_ > ? AND offset_ <= ?";
 	
-	private final String ORDER_BY_CLAUSE= " ORDER BY wc.connectionExecutionDate DESC";
+	private static final String ORDER_BY_CLAUSE= " ORDER BY wc.connectionExecutionDate DESC";
 	/**
 	 * 
 	 * @param criteria
@@ -109,9 +109,9 @@ public class WsQueryBuilder {
 			preparedStatement.add(criteria.getApplicationNumber());
 			isAnyCriteriaMatch = true;
 		}
-		if (isAnyCriteriaMatch == false) {
+		if (!isAnyCriteriaMatch) {
 			return null;
-			}
+		}
 		query.append(ORDER_BY_CLAUSE);
 		return addPaginationWrapper(query.toString(), preparedStatement, criteria);
 	}
@@ -136,9 +136,7 @@ public class WsQueryBuilder {
 	}
 
 	private void addToPreparedStatement(List<Object> preparedStatement, Set<String> ids) {
-		ids.forEach(id -> {
-			preparedStatement.add(id);
-		});
+		ids.forEach(id -> preparedStatement.add(id));
 	}
 
 

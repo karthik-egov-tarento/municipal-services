@@ -1,4 +1,4 @@
-package org.egov.waterconnection.model.Idgen;
+package org.egov.waterconnection.model.idgen;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
