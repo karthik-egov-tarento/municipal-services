@@ -96,6 +96,10 @@ public class CalculatorConstants {
 
 	public static final String PENANLTY_MASTER = "Penalty";
 
+	public static final String MUTATION_REBATE_MASTER = "MutationRebate";
+
+	public static final String MUTATION_PENANLTY_MASTER = "MutationPenalty";
+
 	public static final String FIRE_CESS_MASTER = "FireCess";
 
 	public static final String CANCER_CESS_MASTER = "CancerCess";

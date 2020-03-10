@@ -844,10 +844,10 @@ public class EstimationService {
 
 		Long docDate =  Long.valueOf(String.valueOf(additionalDetails.get(DOCUMENT_DATE)));
 		BigDecimal taxAmt = calculation.getTaxAmount();
-		BigDecimal rebate = getRebate(taxAmt, timeBasedExemptionMasterMap.get(CalculatorConstants.REBATE_MASTER), docDate);
+		BigDecimal rebate = getRebate(taxAmt, timeBasedExemptionMasterMap.get(CalculatorConstants.MUTATION_REBATE_MASTER), docDate);
 		BigDecimal penalty = BigDecimal.ZERO;
 		if (rebate.equals(BigDecimal.ZERO)) {
-			penalty = getPenalty(taxAmt,timeBasedExemptionMasterMap.get(CalculatorConstants.PENANLTY_MASTER),docDate);
+			penalty = getPenalty(taxAmt,timeBasedExemptionMasterMap.get(CalculatorConstants.MUTATION_PENANLTY_MASTER),docDate);
 		}
 
 		calculation.setRebate(rebate.setScale(2, 2).negate());
