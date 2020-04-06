@@ -83,13 +83,23 @@ public class PropertyController {
 		long startTime = System.nanoTime();
 		RequestInfo requestInfo = requestInfoWrapper.getRequestInfo();
 		List<OldProperty> oldProperties = migrationService.searchOldPropertyFromURL(requestInfoWrapper,propertyCriteria) ;
-
 		List<Property> properties = migrationService.migrateProperty(requestInfo,oldProperties);
 		long endtime = System.nanoTime();
 		long elapsetime = endtime - startTime;
 		System.out.println("Elapsed time--->"+elapsetime);
 		PropertyResponse response = PropertyResponse.builder().properties(properties).responseInfo(
 				responseInfoFactory.createResponseInfoFromRequestInfo(requestInfo, true))
+				.build();
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+
+	@PostMapping("/_updatemigration")
+	public ResponseEntity<PropertyResponse> updateMigration(@Valid @RequestBody RequestInfoWrapper requestInfoWrapper,
+												   @Valid @ModelAttribute OldPropertyCriteria propertyCriteria) {
+
+		List<Property> properties = migrationService.updateMigratedProperty(requestInfoWrapper,propertyCriteria);
+		PropertyResponse response = PropertyResponse.builder().properties(properties).responseInfo(
+				responseInfoFactory.createResponseInfoFromRequestInfo(requestInfoWrapper.getRequestInfo(), true))
 				.build();
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
