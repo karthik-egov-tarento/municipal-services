@@ -1,6 +1,9 @@
 package org.egov.pt.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.TimeZone;
+
+import javax.annotation.PostConstruct;
+
 import lombok.*;
 import org.egov.tracer.config.TracerConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +11,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import java.util.TimeZone;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
 
 @Import({TracerConfiguration.class})
@@ -59,14 +61,6 @@ public class PropertyConfiguration {
 
     @Value("${persister.update.drafts.topic}")
     private String updateDraftsTopic;
-    
-    
-    //USER
-    @Value("${egov.user.host}")
-    private String userHost;
-    
-    @Value("${egov.user.search.path}")
-    private String userSearchEndpoint;
 
 
     //IDGEN
@@ -134,22 +128,6 @@ public class PropertyConfiguration {
 
     @Value("${egov.localization.search.endpoint}")
     private String localizationSearchEndpoint;
-
-    //USER EVENTS
-	@Value("${egov.ui.app.host}")
-	private String uiAppHost;
-    
-	@Value("${egov.usr.events.create.topic}")
-	private String saveUserEventsTopic;
-		
-	@Value("${egov.usr.events.pay.link}")
-	private String payLink;
-	
-	@Value("${egov.usr.events.pay.code}")
-	private String payCode;
-	
-	@Value("${egov.user.event.notification.enabled}")
-	private Boolean isUserEventsNotificationEnabled;
 
 
 }

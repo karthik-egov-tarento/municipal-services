@@ -1,14 +1,13 @@
 package org.egov.pt.repository.builder;
 
+import java.util.*;
+
+import org.apache.commons.lang3.StringUtils;
 import org.egov.pt.config.PropertyConfiguration;
 import org.egov.pt.web.models.PropertyCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Component
 public class PropertyQueryBuilder {
@@ -42,9 +41,9 @@ public class PropertyQueryBuilder {
 
 	private static final String LIKE_QUERY = "SELECT pt.*,ptdl.*,address.*,owner.*,doc.*,unit.*,insti.*,"
 			+ " pt.propertyid as propid,ptdl.assessmentnumber as propertydetailid,doc.id as documentid,unit.id as unitid,"
-			+ "address.id as addresskeyid,insti.id as instiid,pt.additionalDetails as pt_additionalDetails,"
+			+ "address.id as addresskeyid,insti.id as instiid,"
 			+ "ownerdoc.id as ownerdocid,ownerdoc.documenttype as ownerdocType,ownerdoc.filestore as ownerfileStore,"
-			+ "ownerdoc.documentuid as ownerdocuid, ptdl.additionalDetails as ptdl_additionalDetails,"
+			+ "ownerdoc.documentuid as ownerdocuid,"
 			+ "ptdl.createdby as assesscreatedby,ptdl.lastModifiedBy as assesslastModifiedBy,ptdl.createdTime as assesscreatedTime,"
 			+ "ptdl.lastModifiedTime as assesslastModifiedTime,"
 			+ "ptdl.status as propertydetailstatus, unit.occupancyDate as unitoccupancyDate,"
@@ -66,13 +65,19 @@ public class PropertyQueryBuilder {
 			+ "WHERE offset_ > ? AND offset_ <= ?";
 
 	public String getPropertyLikeQuery(PropertyCriteria criteria, List<Object> preparedStmtList) {
-		StringBuilder builder = new StringBuilder(LIKE_QUERY);
-
-		Set<String> ids = criteria.getIds();
-		if (!CollectionUtils.isEmpty(ids)) {
-
-			builder.append(" pt.propertyid IN (").append(createQuery(ids)).append(")");
-			addToPreparedStatement(preparedStmtList, ids);
+		StringBuilder builder = new StringBuilder(LIKE_QUERY);	
+		
+		if(!StringUtils.isEmpty(criteria.getTenantId())) {
+			if(criteria.getTenantId().equals("pb")) {
+				builder.append("pt.tenantid LIKE ? ");
+				preparedStmtList.add("pb%");
+			}else {
+				builder.append("pt.tenantid = ? ");
+				preparedStmtList.add(criteria.getTenantId());
+			}
+		}else {
+			builder.append("pt.tenantid LIKE ? ");
+			preparedStmtList.add("pb%");
 		}
 		
         return addPaginationWrapper(builder.toString(), preparedStmtList, criteria);
