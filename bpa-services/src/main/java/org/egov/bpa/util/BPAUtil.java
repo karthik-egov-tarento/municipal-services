@@ -103,11 +103,18 @@ public class BPAUtil {
 		ModuleDetail commonMasterMDtl = ModuleDetail.builder().masterDetails(commonMasterDetails)
 				.moduleName(BPAConstants.COMMON_MASTERS_MODULE).build();
 
-		return Arrays.asList(bpaModuleDtls, commonMasterMDtl);
+		
+		// master details for common-masters module
+				List<MasterDetail> OCcalcDetails = new ArrayList<>();
+				OCcalcDetails
+						.add(MasterDetail.builder().name(BPAConstants.OC_CALC).build());
+				ModuleDetail OCDetails = ModuleDetail.builder().masterDetails(OCcalcDetails)
+						.moduleName(BPAConstants.OC_CALC_MODULE).build();
+		return Arrays.asList(bpaModuleDtls, commonMasterMDtl,OCDetails);
 
 	}
 
-	private MdmsCriteriaReq getMDMSRequest(RequestInfo requestInfo, String tenantId) {
+	public MdmsCriteriaReq getMDMSRequest(RequestInfo requestInfo, String tenantId) {
 		List<ModuleDetail> moduleRequest = getBPAModuleRequest();
 
 		List<ModuleDetail> moduleDetails = new LinkedList<>();

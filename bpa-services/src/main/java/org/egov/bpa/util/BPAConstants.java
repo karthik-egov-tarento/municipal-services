@@ -15,6 +15,8 @@ public class BPAConstants {
 
 	public static final String COMMON_MASTERS_MODULE = "common-masters";
 
+	public static final String OC_CALC_MODULE = "oc-calc";
+
 	public static final String NOTIFICATION_LOCALE = "en_IN";
 
 	public static final String NOTIFICATION_INITIATED = "tl.en.counter.initiate";
@@ -88,6 +90,8 @@ public class BPAConstants {
 	public static final String OWNERSHIP_CATEGORY = "OwnerShipCategory";
 
 	public static final String CHECKLIST_NAME = "CheckList";
+
+	public static final String OC_CALC = "OCCalcDiff";
 
 	// FINANCIAL YEAR
 
@@ -310,4 +314,6 @@ public class BPAConstants {
 	public static final String CITIZEN = "CITIZEN";
 	
 	public static final String ACTION_SENDBACKTOCITIZEN = "SEND_BACK_TO_CITIZEN";
+	
+	public static final String BlocksCount = "$.edcrDetail[0].planDetail.blocks[*]";
 }
