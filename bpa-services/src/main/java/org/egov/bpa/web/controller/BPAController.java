@@ -7,7 +7,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.egov.bpa.service.BPAOCService;
 import org.egov.bpa.service.BPAService;
+import org.egov.bpa.service.OCResponse;
 import org.egov.bpa.util.BPAConstants;
 import org.egov.bpa.util.BPAUtil;
 import org.egov.bpa.util.ResponseInfoFactory;
@@ -16,6 +18,7 @@ import org.egov.bpa.web.models.BPARequest;
 import org.egov.bpa.web.models.BPAResponse;
 import org.egov.bpa.web.models.BPASearchCriteria;
 import org.egov.bpa.web.models.RequestInfoWrapper;
+import org.egov.common.contract.request.RequestInfo;
 import org.egov.tracer.model.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -39,6 +42,9 @@ public class BPAController {
 
 	@Autowired
 	private ResponseInfoFactory responseInfoFactory;
+	
+	@Autowired
+	private BPAOCService bpaOcService;
 
 	@PostMapping(value = "/_create")
 	public ResponseEntity<BPAResponse> create(@Valid @RequestBody BPARequest bpaRequest) {
@@ -94,4 +100,12 @@ public class BPAController {
 				.body(resource);
 	}
 
+	@PostMapping(value = "/_ocbpa")
+	public String getPdf(@Valid @RequestBody RequestInfoWrapper requestInfoWrapper, @Valid @ModelAttribute BPASearchCriteria criteria) {
+
+		RequestInfo requestInfo =requestInfoWrapper.getRequestInfo();
+		String response = bpaOcService.validateAdditionalData(requestInfo, criteria);
+		System.out.println("Checking is " + response);
+		return response;
+	}
 }
