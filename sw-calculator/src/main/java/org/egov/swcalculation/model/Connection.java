@@ -508,6 +508,19 @@ public class Connection {
 	public void setProcessInstance(ProcessInstance processInstance) {
 		this.processInstance = processInstance;
 	}
+	
+	public Connection auditDetails(AuditDetails auditDetails) {
+		this.auditDetails = auditDetails;
+		return this;
+	}
+
+	public AuditDetails getAuditDetails() {
+		return auditDetails;
+	}
+
+	public void setAuditDetails(AuditDetails auditDetails) {
+		this.auditDetails = auditDetails;
+	}
 
 	@Override
 	public boolean equals(java.lang.Object o) {
