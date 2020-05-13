@@ -1,9 +1,6 @@
 package org.egov.waterconnection.workflow;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.math.BigDecimal;
-import java.util.stream.Collectors;
 
 import org.egov.common.contract.request.RequestInfo;
 import org.egov.tracer.model.CustomException;
@@ -15,6 +12,8 @@ import org.egov.waterconnection.model.workflow.State;
 import org.egov.waterconnection.repository.ServiceRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @Service

@@ -1,6 +1,5 @@
 package org.egov.swcalculation.model;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 import javax.validation.Valid;
