@@ -42,8 +42,7 @@ public class ValidateProperty {
     * @return true if property id is present otherwise return false
     */
 	public boolean isPropertyIdPresentForSewerage(SewerageConnectionRequest sewerageConnectionRequest) {
-		if (sewerageConnectionRequest.getSewerageConnection().getProperty() == null
-				|| StringUtils.isEmpty(sewerageConnectionRequest.getSewerageConnection().getProperty().getPropertyId()))
+		if (StringUtils.isEmpty(sewerageConnectionRequest.getSewerageConnection().getPropertyId()))
 			return false;
 		return true;
 	}

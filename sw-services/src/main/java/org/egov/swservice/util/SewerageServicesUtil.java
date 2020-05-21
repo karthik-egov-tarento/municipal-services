@@ -80,7 +80,14 @@ public class SewerageServicesUtil {
 		PropertyCriteria propertyCriteria = new PropertyCriteria();
 		propertyUUID.add(sewerageConnectionRequest.getSewerageConnection().getPropertyId());
 		propertyCriteria.setUuids(propertyUUID);
-		propertyCriteria.setTenantId(sewerageConnectionRequest.getSewerageConnection().getProperty().getTenantId());
+		// This create request is from either Citizen / Employee
+		// In case of Citizen, no need to add 'tenantId'
+		// In case of Employee, add the employee's 'tenantId' from userInfo, since Employee is not allowed to search 
+		// properties in other than logged in city.
+		if(sewerageConnectionRequest.getRequestInfo().getUserInfo() != null &&
+				"EMPLOYEE".equalsIgnoreCase(sewerageConnectionRequest.getRequestInfo().getUserInfo().getType())) {
+			propertyCriteria.setTenantId(sewerageConnectionRequest.getRequestInfo().getUserInfo().getTenantId());
+		}
 		Object result = serviceRequestRepository.fetchResult(
 				getPropertyURL(propertyCriteria),
 				RequestInfoWrapper.builder().requestInfo(sewerageConnectionRequest.getRequestInfo()).build());
@@ -114,7 +121,7 @@ public class SewerageServicesUtil {
 
 	public List<Property> propertySearchOnCriteria(SearchCriteria sewerageConnectionSearchCriteria,
 			RequestInfo requestInfo) {
-		if (StringUtils.isEmpty(sewerageConnectionSearchCriteria.getMobileNumber()) || StringUtils.isEmpty(sewerageConnectionSearchCriteria.getPropertyId())) {
+		if (StringUtils.isEmpty(sewerageConnectionSearchCriteria.getMobileNumber())) {
 			return Collections.emptyList();
 		}
 		PropertyCriteria propertyCriteria = new PropertyCriteria();
