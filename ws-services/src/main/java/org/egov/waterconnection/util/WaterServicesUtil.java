@@ -96,7 +96,14 @@ public class WaterServicesUtil {
 		HashSet<String> propertyUUID = new HashSet<>();
 		propertyUUID.add(waterConnectionRequest.getWaterConnection().getPropertyId());
 		propertyCriteria.setUuids(propertyUUID);
-		propertyCriteria.setTenantId(waterConnectionRequest.getWaterConnection().getProperty().getTenantId());
+		// This create request is from either Citizen / Employee
+		// In case of Citizen, no need to add 'tenantId'
+		// In case of Employee, add the employee's 'tenantId' from userInfo, since Employee is not allowed to search 
+		// properties in other than logged in city.
+		if(waterConnectionRequest.getRequestInfo().getUserInfo() != null &&
+				"EMPLOYEE".equalsIgnoreCase(waterConnectionRequest.getRequestInfo().getUserInfo().getType())) {
+			propertyCriteria.setTenantId(waterConnectionRequest.getRequestInfo().getUserInfo().getTenantId());
+		}
 		Object result = serviceRequestRepository.fetchResult(
 				getPropertyURL(propertyCriteria),
 				RequestInfoWrapper.builder().requestInfo(waterConnectionRequest.getRequestInfo()).build());
