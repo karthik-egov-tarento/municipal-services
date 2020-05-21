@@ -117,27 +117,22 @@ public class WaterServicesUtil {
 	 */
 	public List<Property> propertySearchOnCriteria(SearchCriteria waterConnectionSearchCriteria,
 			RequestInfo requestInfo) {
-		PropertyCriteria criteria = new PropertyCriteria();
-		if (StringUtils.isEmpty(waterConnectionSearchCriteria.getMobileNumber())
-				|| StringUtils.isEmpty(waterConnectionSearchCriteria.getPropertyId())) {
+		if (StringUtils.isEmpty(waterConnectionSearchCriteria.getMobileNumber())) {
 			return Collections.emptyList();
 		}
 		PropertyCriteria propertyCriteria = new PropertyCriteria();
 		if (!StringUtils.isEmpty(waterConnectionSearchCriteria.getTenantId())) {
 			propertyCriteria.setTenantId(waterConnectionSearchCriteria.getTenantId());
-			criteria.setTenantId(tenantId);
 		}
 		if (!StringUtils.isEmpty(waterConnectionSearchCriteria.getMobileNumber())) {
 			propertyCriteria.setMobileNumber(waterConnectionSearchCriteria.getMobileNumber());
-			criteria.setMobileNumber(waterConnectionSearchCriteria.getMobileNumber());
 		}
 		if (!StringUtils.isEmpty(waterConnectionSearchCriteria.getPropertyId())) {
 			HashSet<String> propertyIds = new HashSet<>();
 			propertyIds.add(waterConnectionSearchCriteria.getPropertyId());
 			propertyCriteria.setPropertyIds(propertyIds);
-			criteria.setPropertyIds(propertyIds);
 		}
-		return getPropertyDetails(serviceRequestRepository.fetchResult(getPropertyURL(criteria),
+		return getPropertyDetails(serviceRequestRepository.fetchResult(getPropertyURL(propertyCriteria),
 				RequestInfoWrapper.builder().requestInfo(requestInfo).build()));
 	}
 	
