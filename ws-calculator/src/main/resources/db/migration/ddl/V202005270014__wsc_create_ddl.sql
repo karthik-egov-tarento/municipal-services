@@ -10,5 +10,5 @@ CREATE TABLE eg_wsc_meterreading
   currentReading decimal NOT NULL,
   currentReadingDate bigint NOT NULL,
   consumption decimal,
-  CONSTRAINT uk_meterreading UNIQUE (id)
+  CONSTRAINT uk_eg_wsc_meterreading UNIQUE (id)
 );
