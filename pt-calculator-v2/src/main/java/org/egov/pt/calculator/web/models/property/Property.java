@@ -104,7 +104,7 @@ public class Property extends PropertyInfo{
 		private String tenantId;
 		private String acknowldgementNumber;
 		private String oldPropertyId;
-		private StatusEnum status;
+		private PropertyStatusEnum status;
 		
 		@NotNull
 		@Valid
@@ -152,7 +152,7 @@ public class Property extends PropertyInfo{
 			return this;
 		}
 
-		public PropertyBuilder status(StatusEnum status){
+		public PropertyBuilder status(PropertyStatusEnum status){
 			this.status = status;
 			return this;
 		}

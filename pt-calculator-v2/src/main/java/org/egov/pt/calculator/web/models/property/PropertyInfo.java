@@ -38,14 +38,14 @@ public class PropertyInfo   {
               /**
    * status of the Property
    */
-  public enum StatusEnum {
+  public enum PropertyStatusEnum {
     ACTIVE("ACTIVE"),
     
     INACTIVE("INACTIVE");
 
     private String value;
 
-    StatusEnum(String value) {
+    PropertyStatusEnum(String value) {
       this.value = value;
     }
 
@@ -56,8 +56,8 @@ public class PropertyInfo   {
     }
 
     @JsonCreator
-    public static StatusEnum fromValue(String text) {
-      for (StatusEnum b : StatusEnum.values()) {
+    public static PropertyStatusEnum fromValue(String text) {
+      for (PropertyStatusEnum b : PropertyStatusEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
           return b;
         }
@@ -66,7 +66,7 @@ public class PropertyInfo   {
     }
   }
         @JsonProperty("status")
-        public StatusEnum status;
+        public PropertyStatusEnum status;
 
         @Valid
         @JsonProperty("address")
@@ -75,7 +75,7 @@ public class PropertyInfo   {
 
 
 
-    protected PropertyInfo(String propertyId, String tenantId, String acknowldgementNumber, String oldPropertyId, StatusEnum status, Address address) {
+    protected PropertyInfo(String propertyId, String tenantId, String acknowldgementNumber, String oldPropertyId, PropertyStatusEnum status, Address address) {
         this.propertyId = propertyId;
         this.tenantId = tenantId;
         this.acknowldgementNumber = acknowldgementNumber;

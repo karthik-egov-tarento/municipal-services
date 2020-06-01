@@ -74,6 +74,11 @@
 						<class>org.egov.pt.calculator.web.models.collections.PaymentResponse</class>
 						<class>org.egov.pt.calculator.web.models.collections.PaymentSearchCriteria</class>
 					</classes>
+					<customTypeNaming>
+						<customTypeNaming>org.egov.pt.calculator.web.models.demand.Purpose:BillDetailPurpose</customTypeNaming>
+						<customTypeNaming>org.egov.pt.calculator.web.models.demand.Demand$StatusEnum:StatusEnum</customTypeNaming>
+						<customTypeNaming>org.egov.pt.calculator.web.models.Status:PropertyStatus</customTypeNaming>
+					</customTypeNaming>
 					<customTypeMappings>
 						<customTypeMapping>org.egov.common.contract.request.User:User</customTypeMapping>
 						<customTypeMapping>org.egov.common.contract.request.RequestInfo:RequestInfo</customTypeMapping>
