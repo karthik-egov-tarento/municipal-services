@@ -11,4 +11,4 @@ CREATE TABLE meterreading
   currentReadingDate bigint NOT NULL,
   consumption decimal,
   CONSTRAINT uk_meterreading UNIQUE (id)
-);a
+);
