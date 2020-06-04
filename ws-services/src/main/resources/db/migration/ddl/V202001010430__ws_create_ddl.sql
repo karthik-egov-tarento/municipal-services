@@ -1,5 +1,8 @@
+DROP TABLE IF EXISTS eg_ws_plumberinfo;
+DROP TABLE IF EXISTS eg_ws_applicationdocument;
 DROP TABLE IF EXISTS water_service_connection;
 DROP TABLE IF EXISTS connection;
+
 
 CREATE TABLE connection
 (

@@ -1,3 +1,8 @@
+DROP TABLE IF EXISTS eg_sw_plumberinfo;
+DROP TABLE IF EXISTS eg_sw_applicationdocument;
+DROP TABLE IF EXISTS eg_sw_service;
+DROP TABLE IF EXISTS eg_sw_connection;
+
 CREATE TABLE eg_sw_connection
 (
 id character varying(64) NOT NULL,
