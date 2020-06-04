@@ -36,10 +36,9 @@ CREATE TABLE water_service_connection
   noOfTaps integer,
   proposedpipesize decimal,
   proposedTaps integer,
-  initialmeterreading  numeric(12,2),
+  initialmeterreading  numeric(12,3),
   appCreatedDate bigint,
   detailsprovidedby character varying(256),
-  initialmeterreading type numeric(12,3),
   CONSTRAINT water_service_connection_connection_id_fkey FOREIGN KEY (connection_id) REFERENCES connection (id) 
   ON UPDATE CASCADE
   ON DELETE CASCADE
