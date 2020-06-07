@@ -37,7 +37,6 @@ CREATE TABLE water_service_connection
   meterinstallationdate bigint,
   pipeSize decimal,
   noOfTaps integer,
-  connectionexecutiondate bigint,
   proposedpipesize decimal,
   proposedTaps integer,
   initialmeterreading  numeric(12,3),
