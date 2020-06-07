@@ -33,6 +33,9 @@ public class Connection {
 
 	@JsonProperty("property")
 	private Property property = null;
+	
+	@JsonProperty("propertyId")
+	private String propertyId = null;
 
 	@JsonProperty("applicationNo")
 	private String applicationNo = null;
@@ -507,6 +510,19 @@ public class Connection {
 
 	public void setProcessInstance(ProcessInstance processInstance) {
 		this.processInstance = processInstance;
+	}
+	
+	public void setPropertyId(String propertyId) {
+		this.propertyId = propertyId;
+	}
+
+	public String getPropertyId() {
+		return propertyId;
+	}
+
+	public Connection propertyId(String propertyId) {
+		this.propertyId = propertyId;
+		return this;
 	}
 
 	@Override
