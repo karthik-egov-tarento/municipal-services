@@ -21,7 +21,7 @@ CREATE TABLE connection
   adhocpenaltyreason character varying(1024),
   adhocpenaltycomment character varying(1024),
   adhocrebatereason character varying(1024),
-  adhocrebatecomment character varying(1024);
+  adhocrebatecomment character varying(1024),
   CONSTRAINT connection_pkey PRIMARY KEY (id)
 );
 
