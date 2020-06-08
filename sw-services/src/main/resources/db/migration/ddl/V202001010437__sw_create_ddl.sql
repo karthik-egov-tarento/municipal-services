@@ -22,7 +22,7 @@ adhocpenalty numeric(12,2),
 adhocpenaltyreason character varying(1024),
 adhocpenaltycomment character varying(1024),
 adhocrebatereason character varying(1024),
-adhocrebatecomment character varying(1024)
+adhocrebatecomment character varying(1024),
 CONSTRAINT eg_sw_connection_pkey PRIMARY KEY (id)
 );
 
