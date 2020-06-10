@@ -48,6 +48,7 @@ export const searchApiResponse = async (request, next = {}) => {
   const roles = get(request.body, "RequestInfo.userInfo.roles");
   const userUUID = get(request.body, "RequestInfo.userInfo.uuid");
   const isUser = some(roles, { code: "CITIZEN" }) && userUUID;
+  /*
   if (isUser) {
     const mobileNumber = get(request.body, "RequestInfo.userInfo.mobileNumber");
     const tenantId = get(request.body, "RequestInfo.userInfo.tenantId");
@@ -71,6 +72,15 @@ export const searchApiResponse = async (request, next = {}) => {
       text = `${text} FN.tenantid = '${queryObj.tenantId}' AND`;
     }
   }
+  */
+
+  if (!isEmpty(queryObj)) {
+    text = text + " where ";
+  }
+  if (queryObj.tenantId) {
+    text = `${text} FN.tenantid = '${queryObj.tenantId}' AND`;
+  }
+
   // if (queryObj.status) {
   //   queryObj.action = actions[queryObj.status];
   // }
