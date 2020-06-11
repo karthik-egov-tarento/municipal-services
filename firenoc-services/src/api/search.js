@@ -152,6 +152,7 @@ export const searchApiResponse = async (request, next = {}) => {
           item != "ids" &&
           item != "mobileNumber"
         ) {
+          queryObj[item]=queryObj[item].toUpperCase();
           sqlQuery = `${sqlQuery} ${item}='${queryObj[item]}' AND`;
         }
       }
