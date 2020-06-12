@@ -131,6 +131,11 @@ public class WsQueryBuilder {
 			query.append("  wc.appCreatedDate <= ? ");
 			preparedStatement.add(criteria.getToDate());
 		}
+		if (criteria.getConnectionType() != null) {
+			addClauseIfRequired(preparedStatement, query);
+			query.append("  wc.connectiontype = ? ");
+			preparedStatement.add(criteria.getConnectionType());
+		}
 		query.append(ORDER_BY_CLAUSE);
 		return addPaginationWrapper(query.toString(), preparedStatement, criteria);
 	}
