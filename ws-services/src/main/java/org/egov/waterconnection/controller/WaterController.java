@@ -3,22 +3,13 @@ package org.egov.waterconnection.controller;
 import java.util.List;
 import javax.validation.Valid;
 
-import org.egov.waterconnection.model.RequestInfoWrapper;
-import org.egov.waterconnection.model.SearchCriteria;
-import org.egov.waterconnection.model.WaterConnection;
-import org.egov.waterconnection.model.WaterConnectionRequest;
-import org.egov.waterconnection.model.WaterConnectionResponse;
+import org.egov.waterconnection.model.*;
 import org.egov.waterconnection.service.WaterService;
 import org.egov.waterconnection.util.ResponseInfoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ModelAttribute;
-
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -69,6 +60,15 @@ public class WaterController {
 				.build();
 		return new ResponseEntity<>(response, HttpStatus.OK);
 
+	}
+
+	@RequestMapping(value = "/_delete", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<DeleteWaterConnectionResponse> deleteWaterConnection(@Valid @RequestBody DeleteWaterConnectionRequest deleteWaterConnectionRequest) {
+		String response = waterService.deleteWaterConnection(deleteWaterConnectionRequest);
+		DeleteWaterConnectionResponse deleteWaterConnectionResponse = DeleteWaterConnectionResponse.builder().responseInfo(responseInfoFactory
+				.createResponseInfoFromRequestInfo(deleteWaterConnectionRequest.getRequestInfo(), true)).status(response).build();
+		return new ResponseEntity<>(deleteWaterConnectionResponse,HttpStatus.OK);
 	}
 
 

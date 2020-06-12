@@ -9,10 +9,7 @@ import java.util.Set;
 import org.egov.common.contract.request.RequestInfo;
 import org.egov.tracer.model.CustomException;
 import org.egov.waterconnection.config.WSConfiguration;
-import org.egov.waterconnection.model.Property;
-import org.egov.waterconnection.model.SearchCriteria;
-import org.egov.waterconnection.model.WaterConnection;
-import org.egov.waterconnection.model.WaterConnectionRequest;
+import org.egov.waterconnection.model.*;
 import org.egov.waterconnection.model.workflow.BusinessService;
 import org.egov.waterconnection.repository.WaterDao;
 import org.egov.waterconnection.repository.WaterDaoImpl;
@@ -177,5 +174,17 @@ public class WaterServiceImpl implements WaterService {
 		}
 			
 		return connections.get(0);
+	}
+
+	@Override
+	public String deleteWaterConnection(DeleteWaterConnectionRequest deleteWaterConnectionRequest){
+		String response = null;
+		/****
+		 ****
+		functionality of deleting water connection will be written here
+		 ****
+		 */
+		response = "Water connection application number "+deleteWaterConnectionRequest.getApplicationNumber()+" is deleted";
+		return response;
 	}
 }
