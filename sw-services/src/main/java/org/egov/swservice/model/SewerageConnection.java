@@ -28,6 +28,9 @@ public class SewerageConnection extends Connection {
 	@JsonProperty("noOfToilets")
 	private Integer noOfToilets = null;
 
+	@JsonProperty("toiletsBuildCost")
+	private Integer toiletsBuildCost = null;
+
 	public SewerageConnection noOfWaterClosets(Integer noOfWaterClosets) {
 		this.noOfWaterClosets = noOfWaterClosets;
 		return this;
@@ -35,7 +38,7 @@ public class SewerageConnection extends Connection {
 
 	/**
 	 * Get noOfWaterClosets
-	 * 
+	 *
 	 * @return noOfWaterClosets
 	 **/
 	@ApiModelProperty(value = "")
@@ -56,7 +59,7 @@ public class SewerageConnection extends Connection {
 
 	/**
 	 * Get proposedWaterClosets
-	 * 
+	 *
 	 * @return proposedWaterClosets
 	 **/
 	@ApiModelProperty(value = "")
@@ -77,7 +80,7 @@ public class SewerageConnection extends Connection {
 
 	/**
 	 * Get noOfToilets
-	 * 
+	 *
 	 * @return noOfToilets
 	 **/
 	@ApiModelProperty(value = "")
@@ -96,9 +99,14 @@ public class SewerageConnection extends Connection {
 		return this;
 	}
 
+	public SewerageConnection toiletsBuildCost(Integer toiletsBuildCost) {
+		this.toiletsBuildCost = toiletsBuildCost;
+		return this;
+	}
+
 	/**
 	 * Get proposedToilets
-	 * 
+	 *
 	 * @return proposedToilets
 	 **/
 	@ApiModelProperty(value = "")
@@ -110,6 +118,23 @@ public class SewerageConnection extends Connection {
 
 	public void setProposedToilets(Integer proposedToilets) {
 		this.proposedToilets = proposedToilets;
+	}
+
+
+	/**
+	 * Get toiletsBuildCost
+	 *
+	 * @return toiletsBuildCost
+	 **/
+	@ApiModelProperty(value = "")
+
+	@Valid
+	public Integer getToiletsBuildCost() {
+		return toiletsBuildCost;
+	}
+
+	public void setToiletsBuildCost(Integer toiletsBuildCost) {
+		this.toiletsBuildCost = toiletsBuildCost;
 	}
 
 	@Override
@@ -124,12 +149,13 @@ public class SewerageConnection extends Connection {
 		return Objects.equals(this.noOfWaterClosets, sewerageConnection.noOfWaterClosets)
 				&& Objects.equals(this.proposedWaterClosets, sewerageConnection.proposedWaterClosets)
 				&& Objects.equals(this.noOfToilets, sewerageConnection.noOfToilets)
-				&& Objects.equals(this.proposedToilets, sewerageConnection.proposedToilets) && super.equals(o);
+				&& Objects.equals(this.proposedToilets, sewerageConnection.proposedToilets)
+				&& Objects.equals(this.toiletsBuildCost, sewerageConnection.toiletsBuildCost) && super.equals(o);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(noOfWaterClosets, proposedWaterClosets, noOfToilets, proposedToilets, super.hashCode());
+		return Objects.hash(noOfWaterClosets, proposedWaterClosets, noOfToilets, proposedToilets, toiletsBuildCost, super.hashCode());
 	}
 
 	@Override
@@ -141,6 +167,7 @@ public class SewerageConnection extends Connection {
 		sb.append("    proposedWaterClosets: ").append(toIndentedString(proposedWaterClosets)).append("\n");
 		sb.append("    noOfToilets: ").append(toIndentedString(noOfToilets)).append("\n");
 		sb.append("    proposedToilets: ").append(toIndentedString(proposedToilets)).append("\n");
+		sb.append("    toiletsBuildCost: ").append(toIndentedString(toiletsBuildCost)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}
