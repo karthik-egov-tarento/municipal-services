@@ -53,6 +53,9 @@ public class WSCalculatorQueryBuilder {
 		addClauseIfRequired(preparedStatement, query);
 		query.append(" mr.connectionNo IN (").append(createQuery(criteria.getConnectionNos())).append(" )");
 		addToPreparedStatement(preparedStatement, criteria.getConnectionNos());
+		if (!StringUtils.isEmpty(criteria.getBillingPeriod())) {
+			query.append(" AND mr.billingPeriod = '").append(criteria.getBillingPeriod()).append("'");
+		}
 		addOrderBy(query);
 		return addPaginationWrapper(query, preparedStatement, criteria);
 	}
