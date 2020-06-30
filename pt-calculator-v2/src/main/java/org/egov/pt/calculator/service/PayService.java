@@ -115,11 +115,15 @@ public class PayService {
 
 		String[] time = getStartTime(assessmentYear,penalty);
 		Calendar cal = Calendar.getInstance();
-		setDateToCalendar(time, cal);
-		Long currentIST = System.currentTimeMillis()+TIMEZONE_OFFSET;
+		setDateToCalendar(assessmentYear, time, cal);
+//		setDateToCalendar(time, cal);
+//		Long currentIST = System.currentTimeMillis()+TIMEZONE_OFFSET;
 
-		if (cal.getTimeInMillis() < currentIST)
+		if (cal.getTimeInMillis() < System.currentTimeMillis())
 			penaltyAmt = mDService.calculateApplicables(taxAmt, penalty);
+
+//		if (cal.getTimeInMillis() < currentIST)
+//			penaltyAmt = mDService.calculateApplicables(taxAmt, penalty);
 
 		return penaltyAmt;
 	}
