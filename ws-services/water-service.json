@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "46fa29e5-69ae-41b1-960a-8dea2fe8b584",
+		"name": "Dev-Water-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Water Search API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"ver\": \".01\",\n        \"action\": \"\",\n        \"did\": \"1\",\n        \"key\": \"\",\n        \"msgId\": \"20170310130900|en_IN\",\n        \"requesterId\": \"\",\n        \"authToken\": \"575c84bc-06a9-4d74-9b91-5924b50addb6\",\n        \"userInfo\": {\n            \"id\": 24226,\n            \"uuid\": \"11b0e02b-0145-4de2-bc42-c97b96264807\",\n            \"userName\": \"amr001\",\n            \"name\": \"leela\",\n            \"mobileNumber\": \"9814424443\",\n            \"emailId\": \"leela@llgmail.com\",\n            \"locale\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"name\": \"CITIZEN\",\n                    \"code\": \"CITIZEN\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Document Verifier\",\n                    \"code\": \"WS_DOC_VERIFIER\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Approver\",\n                    \"code\": \"WS_APPROVER\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS CLARK\",\n                    \"code\": \"WS_CLERK\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"Employee\",\n                    \"code\": \"EMPLOYEE\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Counter Employee\",\n                    \"code\": \"WS_CEMP\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Field Inspector\",\n                    \"code\": \"WS_FIELD_INSPECTOR\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Junior Engineer\",\n                    \"code\": \"WS_JUNIOR_ENGINEER\",\n                    \"tenantId\": \"pb\"\n                }\n            ],\n            \"active\": true,\n            \"tenantId\": \"pb\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egov-micro-dev.egovernments.org/ws-services/wc/_search?tenantId=pb.amritsar&applicationNumber=WS_AP/1013/2019-20/000242",
+					"protocol": "https",
+					"host": [
+						"egov-micro-dev",
+						"egovernments",
+						"org"
+					],
+					"path": [
+						"ws-services",
+						"wc",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "mobileNumber",
+							"value": "77907290453",
+							"disabled": true
+						},
+						{
+							"key": "propertyId",
+							"value": "PB-PT-2020-02-28-019538",
+							"disabled": true
+						},
+						{
+							"key": "connectionNumber",
+							"value": "WS/107/2019-20/060984",
+							"disabled": true
+						},
+						{
+							"key": "applicationStatus",
+							"value": "INITIATED",
+							"disabled": true
+						},
+						{
+							"key": "fromDate",
+							"value": "1583146870000",
+							"disabled": true
+						},
+						{
+							"key": "toDate",
+							"value": "1583232968000",
+							"disabled": true
+						},
+						{
+							"key": "tenantId",
+							"value": "pb.amritsar"
+						},
+						{
+							"key": "applicationNumber",
+							"value": "WS_AP/1013/2019-20/000242"
+						}
+					]
+				},
+				"description": "Water Search API"
+			},
+			"response": []
+		},
+		{
+			"name": "Water Create API",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7065e332-3039-4ad8-8fd1-7a46a553b6bf",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"ver\": \".01\",\n        \"action\": \"\",\n        \"did\": \"1\",\n        \"key\": \"\",\n        \"msgId\": \"20170310130900|en_IN\",\n        \"requesterId\": \"\",\n        \"authToken\": \"cb8adf6c-82ae-453a-8d98-6f1700ee2f53\",\n        \"userInfo\": {\n            \"id\": 24226,\n            \"uuid\": \"11b0e02b-0145-4de2-bc42-c97b96264807\",\n            \"userName\": \"amr001\",\n            \"name\": \"leela\",\n            \"mobileNumber\": \"9814424443\",\n            \"emailId\": \"leela@llgmail.com\",\n            \"locale\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"name\": \"CITIZEN\",\n                    \"code\": \"CITIZEN\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Document Verifier\",\n                    \"code\": \"WS_DOC_VERIFIER\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Approver\",\n                    \"code\": \"WS_APPROVER\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS CLARK\",\n                    \"code\": \"WS_CLERK\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"Employee\",\n                    \"code\": \"EMPLOYEE\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Counter Employee\",\n                    \"code\": \"WS_CEMP\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Field Inspector\",\n                    \"code\": \"WS_FIELD_INSPECTOR\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Junior Engineer\",\n                    \"code\": \"WS_JUNIOR_ENGINEER\",\n                    \"tenantId\": \"pb\"\n                }\n            ],\n            \"active\": true,\n            \"tenantId\": \"pb\"\n        }\n    },\n    \"WaterConnection\": {\n        \"property\": {\n            \"id\": \"78322cb7-82f7-4b54-96c0-f101ce166915\",\n            \"propertyId\": \"PB-PT-2020-02-28-019540\",\n            \"surveyId\": null,\n            \"linkedProperties\": null,\n            \"tenantId\": \"pb.amritsar\",\n            \"accountId\": \"15c236cb-eb0c-4035-bd77-b6f62e9640bc\",\n            \"oldPropertyId\": null,\n            \"status\": \"INWORKFLOW\",\n            \"address\": {\n                \"tenantId\": \"pb.amritsar\",\n                \"doorNo\": \"417/j\",\n                \"plotNo\": null,\n                \"id\": \"31c4170a-f203-42db-9e24-e17b11a6b880\",\n                \"landmark\": \" next to grand mercure exit gate\",\n                \"city\": \"amritsar\",\n                \"district\": null,\n                \"region\": null,\n                \"state\": null,\n                \"country\": null,\n                \"pincode\": \"560064\",\n                \"buildingName\": \"jumbedweepa\",\n                \"street\": \"bakery street\",\n                \"locality\": {\n                    \"code\": \"SUN11\",\n                    \"name\": \"Back Side 33 KVA Grid Patiala Road - Area1\",\n                    \"label\": \"Locality\",\n                    \"latitude\": null,\n                    \"longitude\": null,\n                    \"area\": \"Area1\",\n                    \"children\": [],\n                    \"materializedPath\": null\n                },\n                \"geoLocation\": {\n                    \"latitude\": 45.68,\n                    \"longitude\": 47.9\n                },\n                \"additionalDetails\": null\n            },\n            \"acknowldgementNumber\": \"PB-AC-2020-02-28-018969\",\n            \"propertyType\": \"BUILTUP\",\n            \"ownershipCategory\": \"INDIVIDUAL\",\n            \"owners\": [\n                {\n                    \"id\": 28270,\n                    \"uuid\": \"1c174280-284c-4ed4-b834-b6d50e20fe0a\",\n                    \"userName\": \"428dfdaa-f44e-4bf5-bca5-e60d90ed46a3\",\n                    \"password\": null,\n                    \"salutation\": null,\n                    \"name\": \"Satyam\",\n                    \"gender\": \"MALE\",\n                    \"mobileNumber\": \"6360807028\",\n                    \"emailId\": null,\n                    \"altContactNumber\": \"123456\",\n                    \"pan\": null,\n                    \"aadhaarNumber\": null,\n                    \"permanentAddress\": null,\n                    \"permanentCity\": null,\n                    \"permanentPinCode\": null,\n                    \"correspondenceCity\": null,\n                    \"correspondencePinCode\": null,\n                    \"correspondenceAddress\": null,\n                    \"active\": true,\n                    \"dob\": null,\n                    \"pwdExpiryDate\": null,\n                    \"locale\": null,\n                    \"type\": \"CITIZEN\",\n                    \"signature\": null,\n                    \"accountLocked\": null,\n                    \"roles\": [\n                        {\n                            \"id\": null,\n                            \"name\": \"Citizen\",\n                            \"code\": \"CITIZEN\",\n                            \"tenantId\": null\n                        }\n                    ],\n                    \"fatherOrHusbandName\": \"HUSBAND NAME\",\n                    \"bloodGroup\": null,\n                    \"identificationMark\": null,\n                    \"photo\": null,\n                    \"createdBy\": \"15c236cb-eb0c-4035-bd77-b6f62e9640bc\",\n                    \"createdDate\": 1582878190152,\n                    \"lastModifiedBy\": \"15c236cb-eb0c-4035-bd77-b6f62e9640bc\",\n                    \"lastModifiedDate\": 1582878190152,\n                    \"tenantId\": \"pb.amritsar\",\n                    \"ownerInfoUuid\": \"4811b80f-b640-4728-8616-4e852fea7cbb\",\n                    \"isPrimaryOwner\": null,\n                    \"ownerShipPercentage\": 100,\n                    \"ownerType\": \"NONE\",\n                    \"institutionId\": null,\n                    \"status\": \"ACTIVE\",\n                    \"documents\": null,\n                    \"relationship\": \"HUSBAND\"\n                }\n            ],\n            \"institution\": null,\n            \"creationReason\": \"CREATE\",\n            \"usageCategory\": \"RESIDENTIAL\",\n            \"noOfFloors\": 1,\n            \"landArea\": 1000,\n            \"superBuiltUpArea\": null,\n            \"source\": \"MUNICIPAL_RECORDS\",\n            \"channel\": \"SYSTEM\",\n            \"documents\": null,\n            \"units\": [\n                {\n                    \"id\": \"b7645636-2677-4302-8111-f38c7c12714a\",\n                    \"tenantId\": null,\n                    \"floorNo\": 1,\n                    \"unitType\": \"Building, Room, Kitchen etc.\",\n                    \"usageCategory\": \"RESIDENTIAL\",\n                    \"occupancyType\": \"SELFOCCUPIED\",\n                    \"active\": true,\n                    \"occupancyDate\": 0,\n                    \"constructionDetail\": {\n                        \"carpetArea\": 0,\n                        \"builtUpArea\": 1,\n                        \"plinthArea\": 0,\n                        \"superBuiltUpArea\": 0,\n                        \"constructionType\": \"PUCCA\",\n                        \"constructionDate\": 0,\n                        \"dimensions\": null\n                    },\n                    \"additionalDetails\": null,\n                    \"auditDetails\": null,\n                    \"arv\": null\n                }\n            ],\n            \"additionalDetails\": null,\n            \"auditDetails\": {\n                \"createdBy\": \"15c236cb-eb0c-4035-bd77-b6f62e9640bc\",\n                \"lastModifiedBy\": \"15c236cb-eb0c-4035-bd77-b6f62e9640bc\",\n                \"createdTime\": 1582878189968,\n                \"lastModifiedTime\": 1582878189968\n            },\n            \"workflow\": null\n        },\n        \"action\": \"INITIATE\",\n        \"documents\": null,\n        \"proposedTaps\": \"10\",\n        \"proposedPipeSize\": 10,\n        \"processInstance\": {\n            \"action\": \"INITIATE\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egov-micro-dev.egovernments.org/ws-services/wc/_create",
+					"protocol": "https",
+					"host": [
+						"egov-micro-dev",
+						"egovernments",
+						"org"
+					],
+					"path": [
+						"ws-services",
+						"wc",
+						"_create"
+					],
+					"query": [
+						{
+							"key": "connectionNumber",
+							"value": "Con_1002",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "Active",
+							"disabled": true
+						},
+						{
+							"key": "ids",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Create Water Connection API"
+			},
+			"response": []
+		},
+		{
+			"name": "Water Update API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"action\": \"\",\n        \"did\": 1,\n        \"key\": \"\",\n        \"msgId\": \"20170310130900|en_IN\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": \"cb8adf6c-82ae-453a-8d98-6f1700ee2f53\",\n        \"userInfo\": {\n            \"id\": 24226,\n            \"uuid\": \"11b0e02b-0145-4de2-bc42-c97b96264807\",\n            \"userName\": \"amr001\",\n            \"name\": \"leela\",\n            \"mobileNumber\": \"9814424443\",\n            \"emailId\": \"leela@llgmail.com\",\n            \"locale\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"name\": \"CITIZEN\",\n                    \"code\": \"CITIZEN\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Document Verifier\",\n                    \"code\": \"WS_DOC_VERIFIER\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Approver\",\n                    \"code\": \"WS_APPROVER\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS CLARK\",\n                    \"code\": \"WS_CLERK\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"Employee\",\n                    \"code\": \"EMPLOYEE\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Counter Employee\",\n                    \"code\": \"WS_CEMP\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Field Inspector\",\n                    \"code\": \"WS_FIELD_INSPECTOR\",\n                    \"tenantId\": \"pb\"\n                },\n                {\n                    \"name\": \"WS Junior Engineer\",\n                    \"code\": \"WS_JUNIOR_ENGINEER\",\n                    \"tenantId\": \"pb\"\n                }\n            ],\n            \"active\": true,\n            \"tenantId\": \"pb.amritsar\"\n        }\n    },\n    \"WaterConnection\": {\n        \"id\": \"5843d274-823f-4703-8088-9f13f50755b1\",\n        \"property\": {\n            \"id\": \"78322cb7-82f7-4b54-96c0-f101ce166915\",\n            \"propertyId\": \"PB-PT-2020-02-28-019540\",\n            \"surveyId\": null,\n            \"linkedProperties\": null,\n            \"tenantId\": \"pb.amritsar\",\n            \"accountId\": \"15c236cb-eb0c-4035-bd77-b6f62e9640bc\",\n            \"oldPropertyId\": null,\n            \"status\": \"INWORKFLOW\",\n            \"address\": {\n                \"tenantId\": \"pb.amritsar\",\n                \"doorNo\": \"417/j\",\n                \"plotNo\": null,\n                \"id\": \"31c4170a-f203-42db-9e24-e17b11a6b880\",\n                \"landmark\": \" next to grand mercure exit gate\",\n                \"city\": \"amritsar\",\n                \"district\": null,\n                \"region\": null,\n                \"state\": null,\n                \"country\": null,\n                \"pincode\": \"560064\",\n                \"buildingName\": \"jumbedweepa\",\n                \"street\": \"bakery street\",\n                \"locality\": {\n                    \"code\": \"SUN11\",\n                    \"name\": \"Back Side 33 KVA Grid Patiala Road - Area1\",\n                    \"label\": \"Locality\",\n                    \"latitude\": null,\n                    \"longitude\": null,\n                    \"area\": \"Area1\",\n                    \"children\": [],\n                    \"materializedPath\": null\n                },\n                \"geoLocation\": {\n                    \"latitude\": 45.68,\n                    \"longitude\": 47.9\n                },\n                \"additionalDetails\": null\n            },\n            \"acknowldgementNumber\": \"PB-AC-2020-02-28-018969\",\n            \"propertyType\": \"BUILTUP\",\n            \"ownershipCategory\": \"INDIVIDUAL\",\n            \"owners\": [\n                {\n                    \"id\": null,\n                    \"uuid\": \"1c174280-284c-4ed4-b834-b6d50e20fe0a\",\n                    \"userName\": \"428dfdaa-f44e-4bf5-bca5-e60d90ed46a3\",\n                    \"password\": null,\n                    \"salutation\": null,\n                    \"name\": \"Satyam\",\n                    \"gender\": \"MALE\",\n                    \"mobileNumber\": \"6360807028\",\n                    \"emailId\": null,\n                    \"altContactNumber\": \"123456\",\n                    \"pan\": null,\n                    \"aadhaarNumber\": null,\n                    \"permanentAddress\": null,\n                    \"permanentCity\": null,\n                    \"permanentPinCode\": null,\n                    \"correspondenceCity\": null,\n                    \"correspondencePinCode\": null,\n                    \"correspondenceAddress\": null,\n                    \"active\": true,\n                    \"dob\": null,\n                    \"pwdExpiryDate\": 1590645925000,\n                    \"locale\": null,\n                    \"type\": \"CITIZEN\",\n                    \"signature\": null,\n                    \"accountLocked\": false,\n                    \"roles\": [\n                        {\n                            \"id\": null,\n                            \"name\": \"Citizen\",\n                            \"code\": \"CITIZEN\",\n                            \"tenantId\": \"pb\"\n                        }\n                    ],\n                    \"fatherOrHusbandName\": \"HUSBAND NAME\",\n                    \"bloodGroup\": null,\n                    \"identificationMark\": null,\n                    \"photo\": null,\n                    \"createdBy\": \"28041\",\n                    \"createdDate\": 1582869925000,\n                    \"lastModifiedBy\": \"1\",\n                    \"lastModifiedDate\": 1582878190000,\n                    \"tenantId\": \"pb\",\n                    \"ownerInfoUuid\": \"4811b80f-b640-4728-8616-4e852fea7cbb\",\n                    \"isPrimaryOwner\": null,\n                    \"ownerShipPercentage\": 100,\n                    \"ownerType\": \"NONE\",\n                    \"institutionId\": null,\n                    \"status\": \"ACTIVE\",\n                    \"documents\": null,\n                    \"relationship\": \"HUSBAND\"\n                }\n            ],\n            \"institution\": null,\n            \"creationReason\": \"CREATE\",\n            \"usageCategory\": \"RESIDENTIAL\",\n            \"noOfFloors\": 1,\n            \"landArea\": 1000,\n            \"superBuiltUpArea\": null,\n            \"source\": \"MUNICIPAL_RECORDS\",\n            \"channel\": \"SYSTEM\",\n            \"documents\": null,\n            \"units\": [\n                {\n                    \"id\": \"b7645636-2677-4302-8111-f38c7c12714a\",\n                    \"tenantId\": null,\n                    \"floorNo\": 1,\n                    \"unitType\": \"Building, Room, Kitchen etc.\",\n                    \"usageCategory\": \"RESIDENTIAL\",\n                    \"occupancyType\": \"SELFOCCUPIED\",\n                    \"active\": true,\n                    \"occupancyDate\": 0,\n                    \"constructionDetail\": {\n                        \"carpetArea\": 0,\n                        \"builtUpArea\": 1,\n                        \"plinthArea\": 0,\n                        \"superBuiltUpArea\": 0,\n                        \"constructionType\": \"PUCCA\",\n                        \"constructionDate\": 0,\n                        \"dimensions\": null\n                    },\n                    \"additionalDetails\": null,\n                    \"auditDetails\": null,\n                    \"arv\": null\n                }\n            ],\n            \"additionalDetails\": null,\n            \"auditDetails\": {\n                \"createdBy\": \"15c236cb-eb0c-4035-bd77-b6f62e9640bc\",\n                \"lastModifiedBy\": \"15c236cb-eb0c-4035-bd77-b6f62e9640bc\",\n                \"createdTime\": 1582878189968,\n                \"lastModifiedTime\": 1582878189968\n            },\n            \"workflow\": null\n        },\n        \"applicationNo\": \"WS_AP/107/2019-20/061818\",\n        \"applicationStatus\": \"PENDING_FOR_DOCUMENT_VERIFICATION\",\n        \"status\": \"Active\",\n        \"connectionNo\": null,\n        \"oldConnectionNo\": null,\n        \"documents\": [\n            {\n                \"id\": \"e074f53d-7c84-49b8-aa09-1bc8d4d39a03\",\n                \"documentType\": \"OWNER.IDENTITYPROOF.AADHAAR\",\n                \"fileStoreId\": \"e104973c-e1f8-4f2f-8873-d9037bbeaf1f\",\n                \"documentUid\": \"e074f53d-7c84-49b8-aa09-1bc8d4d39a03\",\n                \"auditDetails\": null,\n                \"status\": \"ACTIVE\"\n            },\n            {\n                \"id\": \"7ce43835-0303-4082-872a-7e75e4db65aa\",\n                \"documentType\": \"OWNER.ADDRESSPROOF.DL\",\n                \"fileStoreId\": \"fd473188-0b2b-49c5-b0fc-4cf768a24c43\",\n                \"documentUid\": \"7ce43835-0303-4082-872a-7e75e4db65aa\",\n                \"auditDetails\": null,\n                \"status\": \"ACTIVE\"\n            },\n            {\n                \"id\": \"201f84c1-8855-4918-add4-2434e09162de\",\n                \"documentType\": \"ELECTRICITY_BILL\",\n                \"fileStoreId\": \"34737426-e728-4dd5-a612-9a79477ac690\",\n                \"documentUid\": \"201f84c1-8855-4918-add4-2434e09162de\",\n                \"auditDetails\": null,\n                \"status\": \"ACTIVE\"\n            },\n            {\n                \"id\": \"b003ae5c-3723-472e-93d1-7faa8bd2c0a2\",\n                \"documentType\": \"PLUMBER_REPORT_DRAWING\",\n                \"fileStoreId\": \"8c712e7c-a149-4f19-a2ae-0377b8de770e\",\n                \"documentUid\": \"b003ae5c-3723-472e-93d1-7faa8bd2c0a2\",\n                \"auditDetails\": null,\n                \"status\": \"ACTIVE\"\n            }\n        ],\n        \"plumberInfo\": [\n            {\n                \"name\": null,\n                \"licenseNo\": \"wertfg\",\n                \"mobileNumber\": \"9080098000\",\n                \"gender\": \"Male\",\n                \"fatherOrHusbandName\": null,\n                \"correspondenceAddress\": null,\n                \"relationship\": null,\n                \"additionalDetails\": null\n            }\n        ],\n        \"roadType\": \"BERMCUTTINGKATCHA\",\n        \"roadCuttingArea\": 12,\n        \"processInstance\": {\n            \"action\": \"VERIFY_AND_FORWARD\"\n        },\n        \"connectionCategory\": null,\n        \"rainWaterHarvesting\": false,\n        \"connectionType\": \"Metered\",\n        \"waterSource\": \"GROUND.WELL\",\n        \"meterId\": \"Meter-12090\",\n        \"meterInstallationDate\": 1583346599000,\n        \"proposedPipeSize\": 0.25,\n        \"proposedTaps\": 2,\n        \"pipeSize\": 0.75,\n        \"noOfTaps\": 215,\n        \"waterSubSource\": \"HANDPUMP\",\n        \"connectionExecutionDate\": 1583319149000,\n        \"additionalDetails\": {\n            \"initialMeterReading\": 123.9,\n            \"detailsProvidedBy\": \"SELF\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egov-micro-dev.egovernments.org/ws-services/wc/_update",
+					"protocol": "https",
+					"host": [
+						"egov-micro-dev",
+						"egovernments",
+						"org"
+					],
+					"path": [
+						"ws-services",
+						"wc",
+						"_update"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ea8d0416-a11f-4c52-b66f-5e97c8ed25d3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "120f58aa-78d7-4ab0-a609-f89959e66691",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
