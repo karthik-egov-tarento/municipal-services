@@ -62,10 +62,12 @@ public class EnrichmentService {
 		HashMap<String, Object> additionalDetail = new HashMap<>();
 	    additionalDetail.put(WCConstants.APP_CREATED_DATE, BigDecimal.valueOf(System.currentTimeMillis()));
 	    waterConnectionRequest.getWaterConnection().setAdditionalDetails(additionalDetail);
+	    //Setting ApplicationType
+		waterConnectionRequest.getWaterConnection().setApplicationType("NEW_WATER_CONNECTION");
 		setApplicationIdgenIds(waterConnectionRequest);
 		setStatusForCreate(waterConnectionRequest);
-		
 	}
+
 	@SuppressWarnings("unchecked")
 	public void enrichingAdditionalDetails(WaterConnectionRequest waterConnectionRequest) {
 		HashMap<String, Object> additionalDetail = new HashMap<>();
